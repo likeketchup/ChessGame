@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=piece
-comment1.params=
-comment1.target=piece()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ piece\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
-numComments=3
+comment1.params=name\ color
+comment1.target=piece(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=piece()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
