@@ -1,13 +1,15 @@
 //programmed by toma 2/28/2018
 abstract public class piece
 {
-    abstract String color;
-    abstract String name;
-    abstract int X;//coordinate
-    abstract int Y;//coordinate
-    public piece(String name, String color){
+    String color;
+    String name;
+    int X;//coordinate
+    int Y;//coordinate
+    public piece(String name, String color,int X, int Y){
         this.color = color;
         this.name = name;
+        this.X = X;
+        this.Y = Y;
     }
     abstract public void move(int x, int y); //change the coordinate
     public String getXY(){//get the coordinate
