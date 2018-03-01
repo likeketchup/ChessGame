@@ -1,6 +1,5 @@
 //programmed by toma 2/28/2018
 
-
 public class piece
 {
     private String color = new String();
