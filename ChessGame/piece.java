@@ -9,7 +9,7 @@ abstract public class piece
         this.color = color;
         this.name = name;
     }
-    abstract public void move(); //change the coordinate
+    abstract public void move(int x, int y); //change the coordinate
     public String getXY(){//get the coordinate
     	return "("+X+","+Y+")";
     }
