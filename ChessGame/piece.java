@@ -10,7 +10,7 @@ abstract public class piece
         this.name = name;
     }
     abstract public void move(); //change the coordinate
-    public int getXY(){
+    public String getXY(){//get the coordinate
     	return "("+X+","+Y+")";
     }
     public piece(){
