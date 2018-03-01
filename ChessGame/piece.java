@@ -3,12 +3,16 @@ abstract public class piece
 {
     abstract String color;
     abstract String name;
+    abstract int X;//coordinate
+    abstract int Y;//coordinate
     public piece(String name, String color){
         this.color = color;
         this.name = name;
     }
-    abstract public move();
-    
+    abstract public void move(); //change the coordinate
+    public int getXY(){
+    	return "("+X+","+Y+")";
+    }
     public piece(){
         
     }
