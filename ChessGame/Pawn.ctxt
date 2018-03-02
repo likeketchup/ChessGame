@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Pawn
+comment1.params=color\ X\ Y
+comment1.target=Pawn(java.lang.String,\ int,\ int)
+comment2.params=x\ y
+comment2.target=void\ move(int,\ int)
+numComments=3

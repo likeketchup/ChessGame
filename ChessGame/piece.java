@@ -19,7 +19,7 @@ abstract public class Piece
     }
     public String toString(){
         if(this.name == null){
-            return "O";
+            return "0";
         }
         return this.color + this.name.substring(0,1);
     }

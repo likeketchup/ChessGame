@@ -1,5 +1,5 @@
 
-public class Rook extends piece
+public class Rook extends Piece
 {
 
 	String name = "Rook";

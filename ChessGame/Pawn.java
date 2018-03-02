@@ -1,5 +1,5 @@
 
-public class Pawn extends piece
+public class Pawn extends Piece
 {
 
 	String name = "Pawn";

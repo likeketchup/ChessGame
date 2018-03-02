@@ -42,7 +42,7 @@ public class Borad
     
     public String toString(){
         
-        return "board";
+        return printBorad();
     }
     private String printBorad(){
         String borad = new String();
