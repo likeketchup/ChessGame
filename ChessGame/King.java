@@ -3,7 +3,7 @@ public class King extends piece
 {
 
 	String name = "King";
-    Knight(String color,int X, int Y)
+    King(String color,int X, int Y)
     {
         super(color,X,Y);
     }
