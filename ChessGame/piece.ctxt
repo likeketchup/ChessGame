@@ -8,6 +8,4 @@ comment3.params=
 comment3.target=java.lang.String\ getXY()
 comment4.params=
 comment4.target=Piece()
-comment5.params=
-comment5.target=java.lang.String\ toString()
-numComments=6
+numComments=5

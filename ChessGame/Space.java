@@ -7,4 +7,7 @@ public class Space extends Piece
     {
     	
     }
+    public String toString(){
+        return "  ";
+    }
 }

@@ -4,4 +4,6 @@ comment1.params=color\ X\ Y
 comment1.target=Rook(java.lang.String,\ int,\ int)
 comment2.params=x\ y
 comment2.target=void\ move(int,\ int)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

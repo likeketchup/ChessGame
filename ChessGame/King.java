@@ -11,4 +11,7 @@ public class King extends Piece
     {
     	
     }
+    public String toString(){
+        return super.color+this.name.substring(0,1);
+    }
 }

@@ -2,4 +2,6 @@
 comment0.target=Space
 comment1.params=x\ y
 comment1.target=void\ move(int,\ int)
-numComments=2
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

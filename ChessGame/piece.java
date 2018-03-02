@@ -17,10 +17,5 @@ abstract public class Piece
     public Piece(){
         
     }
-    public String toString(){
-        if(this.name == null){
-            return "0";
-        }
-        return this.color + this.name.substring(0,1);
-    }
+    
 }

@@ -53,7 +53,7 @@ public class Borad
             }
             borad = borad+"\n";
         }
-        borad = borad+"  A B C D E F G H";
+        borad = borad+"  A  B  C  D  E  F  G  H";
         return borad;
     }
 
