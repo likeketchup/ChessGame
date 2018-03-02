@@ -1,9 +1,9 @@
 
-public class King extends piece
+public class King extends Piece
 {
 
 	String name = "King";
-    Knight(String color,int X, int Y)
+    King(String color,int X, int Y)
     {
         super(color,X,Y);
     }

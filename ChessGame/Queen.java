@@ -1,5 +1,5 @@
 
-public class Queen extends piece
+public class Queen extends Piece
 {
     String name = "Queen";
     Queen(String color,int X,int Y)

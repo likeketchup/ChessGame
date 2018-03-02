@@ -1,11 +1,11 @@
 //programmed by toma 2/28/2018
-abstract public class piece
+abstract public class Piece
 {
     String color;
     String name;
     int X;//coordinate
     int Y;//coordinate
-    public piece(String color,int X, int Y){
+    public Piece(String color,int X, int Y){
         this.color = color;
         this.X = X;
         this.Y = Y;
@@ -14,7 +14,7 @@ abstract public class piece
     public String getXY(){//get the coordinate
     	return "("+X+","+Y+")";
     }
-    public piece(){
+    public Piece(){
         
     }
     public String toString(){
