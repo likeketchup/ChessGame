@@ -9,5 +9,6 @@ public class King extends piece
     }
     public void move(int x, int y)
     {
+    	
     }
 }
