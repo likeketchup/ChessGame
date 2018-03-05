@@ -6,6 +6,4 @@ comment2.params=x\ y
 comment2.target=void\ move(int,\ int)
 comment3.params=
 comment3.target=java.lang.String\ getXY()
-comment4.params=
-comment4.target=Piece()
-numComments=5
+numComments=4

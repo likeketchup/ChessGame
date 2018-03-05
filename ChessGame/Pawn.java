@@ -1,11 +1,18 @@
 
 public class Pawn extends Piece
 {
-
-	String name = "Pawn";
-    Pawn(String color,int X, int Y)
+    static private int count = 0;
+    String name = "Pawn";
+    private Pawn(String color,int X, int Y)
     {
         super(color,X,Y);
+    }
+    static public Pawn factory(String color,int X, int Y){
+        count++;
+        if(count==2){
+            throw new Error("You could only initialize 2.");
+        }
+        return new Pawn(color, X, Y);
     }
     public void move(int x, int y)
     {

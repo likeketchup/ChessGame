@@ -5,12 +5,13 @@ import java.util.*;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Borad
+public class Board
 {
     // instance variables - replace the example below with your own
     Piece[][] pieces = new Piece[8][8];
     private int x;
-    Borad(){
+    private static final Board b = new Board();
+    private Board(){
         this.pieces[0][0] = new Rook("B",0,0);
         this.pieces[0][1] = new Knight("B",0,1);
         this.pieces[0][2] = new Bishop("B",0,2);
@@ -41,20 +42,21 @@ public class Borad
     }
     
     public String toString(){
-        
-        return printBorad();
+        return printBoard();
     }
-    private String printBorad(){
-        String borad = new String();
+    private String printBoard(){
+        String board = new String();
         for(int i = 0;i<8;i++){
-            borad = borad+i;
+            board = board+(i+1);
             for(int j = 0;j<8;j++){
-                borad = borad+" "+pieces[i][j];
+                board = board+" "+pieces[i][j];
             }
-            borad = borad+"\n";
+            board = board+"\n";
         }
-        borad = borad+"  A  B  C  D  E  F  G  H";
-        return borad;
+        board = board+"  A  B  C  D  E  F  G  H";
+        return board;
     }
-
+    static public Board getBoard(){
+        return b;
+    }
 }
