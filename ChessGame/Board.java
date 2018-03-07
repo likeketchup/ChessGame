@@ -38,7 +38,7 @@ public class Board
         this.pieces[7][4] = new Queen("W",7,4);
         this.pieces[7][5] = new Bishop("W",7,5);
         this.pieces[7][6] = new Knight("W",7,6);
-        this.pieces[7][7] = new Rook("W",7,7);
+        this.pieces[7][7] = Rook.factory("W",7,7);
     }
     
     public String toString(){
@@ -49,11 +49,11 @@ public class Board
         for(int i = 0;i<8;i++){
             board = board+(i+1);
             for(int j = 0;j<8;j++){
-                board = board+" "+pieces[i][j];
+                board = board+"  "+pieces[i][j];
             }
             board = board+"\n";
         }
-        board = board+"  A  B  C  D  E  F  G  H";
+        board = board+"   A   B   C   D   E   F   G   H";
         return board;
     }
     static public Board getBoard(){
