@@ -50,7 +50,7 @@ public class Board
         for(int i = 0;i<8;i++){
             board = board+(i+1);
             for(int j = 0;j<8;j++){
-                board = board+"  "+pieces[i][j];
+                board = board+"   "+pieces[i][j];
             }
             board = board+"\n";
         }

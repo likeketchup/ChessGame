@@ -9,8 +9,8 @@ public class Queen extends Piece
     }
     static public Queen factory(String color,int X, int Y){
         count++;
-        if(count>1){
-            throw new Error("You could only initialize 1 Queen.");
+        if(count>2){
+            throw new Error("You could only initialize 2 Queen.");
         }
         return new Queen(color, X, Y);
     }

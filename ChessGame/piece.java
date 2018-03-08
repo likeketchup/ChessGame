@@ -12,7 +12,7 @@ abstract public class Piece
         this.X = X;
         this.Y = Y;
         count++;
-        if(count>32){
+        if(count>64){
             throw new Error("Out of 32 pieces!");
         }
     }

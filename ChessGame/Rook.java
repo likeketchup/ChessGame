@@ -10,8 +10,8 @@ public class Rook extends Piece
     }
     static public Rook factory(String color,int X, int Y){
         count++;
-        if(count>2){
-            throw new Error("You could only initialize 2.");
+        if(count>5){
+            throw new Error("You could only initialize 4.");
         }
         return new Rook(color, X, Y);
     }

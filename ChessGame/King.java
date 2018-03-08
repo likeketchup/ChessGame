@@ -9,8 +9,8 @@ public class King extends Piece
     }
     static public King factory(String color,int X, int Y){
         count++;
-        if(count>1){
-            throw new Error("You could only initialize 1 King.");
+        if(count>2){
+            throw new Error("You could only initialize 2 King.");
         }
         return new King(color, X, Y);
     }

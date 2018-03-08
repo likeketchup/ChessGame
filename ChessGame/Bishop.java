@@ -9,8 +9,8 @@ public class Bishop extends Piece
     }
     static public Bishop factory(String color,int X, int Y){
         count++;
-        if(count>2){
-            throw new Error("You could only initialize 2 Bishops.");
+        if(count>4){
+            throw new Error("You could only initialize 4 Bishops.");
         }
         return new Bishop(color, X, Y);
     }

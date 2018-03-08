@@ -9,8 +9,8 @@ public class Pawn extends Piece
     }
     static public Pawn factory(String color,int X, int Y){
         count++;
-        if(count>6){
-            throw new Error("You could only initialize 6 Pawns.");
+        if(count>16){
+            throw new Error("You could only initialize 16 Pawns.");
         }
         return new Pawn(color, X, Y);
     }
