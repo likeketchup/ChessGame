@@ -7,3 +7,7 @@ ChessGame/.DS_Store
 >>>>>>> bbc51366850bf85def8c3f2c665678936b88a3ff
 ChessGame/Knight.java
 ChessGame/package.bluej
+.DS_Store
+ChessGame/Bishop.class
+*.ctxt
+*.class

@@ -9,8 +9,9 @@ public class Client
 {
     // instance variables - replace the example below with your own
     static public void h(){
-        Board a;
-        a = Board.getBoard();
+        Board a = Board.factory();
+        
         System.out.println(a);
+        
     }
 }

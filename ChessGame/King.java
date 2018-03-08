@@ -1,17 +1,24 @@
 
 public class King extends Piece
 {
-
-	String name = "King";
-    King(String color,int X, int Y)
+    static int count = 0;
+    String name = "King";
+    private King(String color,int X, int Y)
     {
         super(color,X,Y);
     }
+    static public King factory(String color,int X, int Y){
+        count++;
+        if(count>1){
+            throw new Error("You could only initialize 1 King.");
+        }
+        return new King(color, X, Y);
+    }
     public void move(int x, int y)
     {
-    	
+        
     }
     public String toString(){
-        return super.color+this.name.substring(0,1);
+        return super.color+this.name.substring(0,2);
     }
 }
