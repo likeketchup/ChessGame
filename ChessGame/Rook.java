@@ -15,7 +15,7 @@ public class Rook extends Piece
         }
         return new Rook(color, X, Y);
     }
-    public void move(int x, int y){ 
+    public boolean move(int x, int y){
         boolean outBoard = (x>8&&x<0)&&(y>8&&y<0);
         boolean towardBackward = this.X!=x && this.Y==y;
         boolean leftRight = this.X==x && this.Y!=y;
@@ -29,6 +29,7 @@ public class Rook extends Piece
         else{
             System.out.println("Rook can not move to there.");
         }
+        return true;//modify latter!
     }
     public String toString(){
         return super.color+this.name.substring(0,1);

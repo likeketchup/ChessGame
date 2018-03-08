@@ -15,7 +15,7 @@ public class Knight extends Piece
         }
         return new Knight(color, X, Y);
     }
-    public void move(int x, int y)
+    public boolean move(int x, int y)
     {
         boolean outBoard = (x>8&&x<0)&&(y>8&&y<0);
         boolean fowardLeft = y==this.Y+2 && x==this.X-1;
@@ -37,6 +37,7 @@ public class Knight extends Piece
         else{
             System.out.println("Knight can not move to there.");
         }
+        return true;//modify latter
     }
     public String toString(){
         return super.color+this.name.substring(0,2);

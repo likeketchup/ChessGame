@@ -7,7 +7,7 @@ abstract public class Piece
     int X;//coordinate
     int Y;//coordinate
     Piece(){}
-    Piece(String color,int X, int Y){
+    Piece(String color, int X, int Y){
         this.color = color;
         this.X = X;
         this.Y = Y;
@@ -16,7 +16,7 @@ abstract public class Piece
             throw new Error("Out of 32 pieces!");
         }
     }
-    abstract public void move(int x, int y); //change the coordinate
+    abstract public boolean move(int x, int y); //change the coordinate and return the result of the movement.
     public String getXY(){//get the coordinate
         return "("+X+","+Y+")";
     }

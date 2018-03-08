@@ -14,8 +14,9 @@ public class Pawn extends Piece
         }
         return new Pawn(color, X, Y);
     }
-    public void move(int x, int y)
+    public boolean move(int x, int y)
     {
+        return true;
     }
     public String toString(){
         return super.color+this.name.substring(0,1);
