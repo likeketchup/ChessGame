@@ -14,12 +14,12 @@ public class Board
     private static final Board b = new Board();
     private Board(){
         this.pieces[0][0] = Rook.factory("B",0,0);
-        this.pieces[0][1] = Knight.factory(b,"B",0,1);
+        this.pieces[0][1] = Knight.factory("B",0,1);
         this.pieces[0][2] = Bishop.factory("B",0,2);
         this.pieces[0][3] = King.factory("B",0,3);
-        this.pieces[0][4] = Queen.factory(b,"B",0,4);
+        this.pieces[0][4] = Queen.factory("B",0,4);
         this.pieces[0][5] = Bishop.factory("B",0,5);
-        this.pieces[0][6] = Knight.factory(b,"B",0,6);
+        this.pieces[0][6] = Knight.factory("B",0,6);
         this.pieces[0][7] = Rook.factory("B",0,7);
         for(int i=0;i<8;i++){
             pieces[1][i] = Pawn.factory(b,"B",1,i);
@@ -33,12 +33,12 @@ public class Board
             pieces[6][i] = Pawn.factory(b,"W",6,i);
         }
         this.pieces[7][0] = Rook.factory("W",7,0);
-        this.pieces[7][1] = Knight.factory(b,"W",7,1);
+        this.pieces[7][1] = Knight.factory("W",7,1);
         this.pieces[7][2] = Bishop.factory("W",7,2);
         this.pieces[7][3] = King.factory("W",7,3);
-        this.pieces[7][4] = Queen.factory(b,"W",7,4);
+        this.pieces[7][4] = Queen.factory("W",7,4);
         this.pieces[7][5] = Bishop.factory("W",7,5);
-        this.pieces[7][6] = Knight.factory(b,"W",7,6);
+        this.pieces[7][6] = Knight.factory("W",7,6);
         this.pieces[7][7] = Rook.factory("W",7,7);
     }
     
@@ -69,9 +69,13 @@ public class Board
     }
     public void movePiece(int x1, int y1, int x2,int y2){
         if(pieces[x1][y1] instanceof Space){
-            System.out.println("there does not have any piece in your appointed coordinate.");
+            System.out.println("there is not have any piece in your appointed coordinate.");
             return ;
         }//prevent player to move the space.
+        if(pieces[x1][y1].color==pieces[x2][y2].color){
+            System.out.println("you cannot eat the piece in the same side!");
+            return ;
+        }//prevent player eat the same color piece.
         if(pieces[x1][y1].move(x2,y2)){
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1]= new Space();

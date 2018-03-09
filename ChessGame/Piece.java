@@ -1,4 +1,3 @@
-//programmed by toma 2/28/2018
 abstract public class Piece
 {   
     static int count = 0;
