@@ -10,7 +10,7 @@ public class Knight extends Piece
     }
     static public Knight factory(String color,int X, int Y){
         count++;
-        if(count>4){
+        if(count>10){
             throw new Error("You could only initialize 4 Knights.");
         }
         return new Knight(color, X, Y);

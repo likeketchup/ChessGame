@@ -8,7 +8,7 @@
 public class Client
 {
     // instance variables - replace the example below with your own
-    static public void main(){
+    public static void main(String[] args){
         Board a = Board.factory();
         System.out.println(a);
         a.movePiece(2,5,2,6);
