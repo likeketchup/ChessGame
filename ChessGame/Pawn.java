@@ -16,10 +16,16 @@ public class Pawn extends Piece
     }
     public boolean move(int x, int y)
     {
-        boolean front=true, left=true ,right=true;
+        boolean front=true, OBleft=true ,OBright=true;
         if(!(gameBoard.getPiece(X+1,Y) instanceof Space))front = false;
-        //if(x==X+1&&y==Y+1)
-        return true;
+        if (gameBoard.getPiece(X+1,Y+1) instanceof Space || gameBoard.getPiece(X+1,Y+1).color==this.color) OBright = false;
+        if (gameBoard.getPiece(X-1,Y+1) instanceof Space || gameBoard.getPiece(X-1,Y+1).color==this.color) OBright = false;
+        if(((x==X+1&&y==Y)&&front == true)||((x==X+1&&y==Y+1)&&OBright == true)||((x==X+1&&y==Y+1)&&OBleft == true)){
+            this.X = x;
+            this.Y = Y;
+            return true;
+        }
+        return false;
     }
     public String toString(){
         return super.color+this.name.substring(0,1);
