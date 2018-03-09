@@ -3,16 +3,16 @@ public class Queen extends Piece
 {   
     static int count = 0;
     String name = "Queen";
-    private Queen(String color,int X,int Y)
+    private Queen(Board b, String color,int X,int Y)
     {
-        super(color,X,Y);
+        super(b,color,X,Y);
     }
-    static public Queen factory(String color,int X, int Y){
+    static public Queen factory(Board b, String color,int X, int Y){
         count++;
         if(count>2){
             throw new Error("You could only initialize 2 Queen.");
         }
-        return new Queen(color, X, Y);
+        return new Queen(b,color, X, Y);
     }
     public boolean move(int x, int y)
     {

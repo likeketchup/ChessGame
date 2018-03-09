@@ -1,9 +1,9 @@
 
 public class Space extends Piece
 {
-    public void move(int x, int y)
+    public boolean move(int x, int y)
     {
-    	
+    	return  true;
     }
     public String toString(){
         return "  ";

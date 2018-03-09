@@ -4,16 +4,16 @@ public class Knight extends Piece
 
     static int count = 0;
     String name = "Knight";
-    private Knight(String color,int X, int Y)
+    private Knight(Board b,String color,int X, int Y)
     {
-        super(color,X,Y);
+        super(b,color,X,Y);
     }
-    static public Knight factory(String color,int X, int Y){
+    static public Knight factory(Board b,String color,int X, int Y){
         count++;
         if(count>4){
             throw new Error("You could only initialize 4 Knights.");
         }
-        return new Knight(color, X, Y);
+        return new Knight(b,color, X, Y);
     }
     public boolean move(int x, int y)
     {
