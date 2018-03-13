@@ -19,6 +19,6 @@ public class Queen extends Piece
         return true;
     }
     public String toString(){
-        return super.color+this.name.substring(0,1);
+        return super.color+this.name.substring(0,2);
     }
 }
