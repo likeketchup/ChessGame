@@ -1,7 +1,6 @@
 
 public class Rook extends Piece
 {
-
     static int count = 0;
     String name = "Rook";
     private Rook(String color,int X, int Y)
@@ -16,20 +15,20 @@ public class Rook extends Piece
         return new Rook(color, X, Y);
     }
     public boolean move(int x, int y){
-        boolean outBoard = (x>8&&x<0)&&(y>8&&y<0);
-        boolean towardBackward = this.X!=x && this.Y==y;
-        boolean leftRight = this.X==x && this.Y!=y;
-        if(outBoard){
-            System.out.println("can not move out of board!");
+        boolean inBoard = true;
+        boolean towardBackward = true;
+        boolean leftRight = true;
+        boolean notSpace = true;
+        if(!(gameBoard.getPiece(x,y) instanceof Space))notSpace = false;
+        if((x>8&&x<0)&&(y>8&&y<0)){
+            inBoard = false;
         }
-        else if(towardBackward||leftRight){
+        if(((this.X!=x && this.Y==y)||(this.X==x && this.Y!=y))&&(inBoard = true)&&(notSpace = true)){
             this.X = x;
             this.Y = y;
+            return true;
         }
-        else{
-            System.out.println("Rook can not move to there.");
-        }
-        return true;//modify latter!
+        return false;
     }
     public String toString(){
         return super.color+this.name.substring(0,1);
