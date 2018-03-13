@@ -13,6 +13,5 @@ public class Client
         System.out.println(a);
         a.movePiece(2,5,2,6);
         System.out.println(a);
-        
     }
 }

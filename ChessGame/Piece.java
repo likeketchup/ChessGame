@@ -1,6 +1,5 @@
 abstract public class Piece
 {   
-    static int count = 0;
     String color;
     String name;
     Board gameBoard;
@@ -12,19 +11,11 @@ abstract public class Piece
         this.color = color;
         this.X = X;
         this.Y = Y;
-        count++;
-        if(count>64){
-            throw new Error("Out of 32 pieces!");
-        }
     }
     Piece( String color, int X, int Y){
         this.color = color;
         this.X = X;
         this.Y = Y;
-        count++;
-        if(count>64){
-            throw new Error("Out of 32 pieces!");
-        }
     }
     abstract public boolean move(int x, int y); //change the coordinate and return the result of the movement.
     public String getXY(){//get the coordinate

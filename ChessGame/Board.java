@@ -65,7 +65,7 @@ public class Board
         if(count>1){
             throw new Error("you can only initialize one board");
         }
-        return new Board();
+        return b;
     }
     public void movePiece(int x1, int y1, int x2,int y2){
         if(pieces[x1][y1] instanceof Space){
