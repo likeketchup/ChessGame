@@ -20,10 +20,10 @@ public class Rook extends Piece
         boolean leftRight = true;
         boolean notSpace = true;
         if(!(gameBoard.getPiece(x,y) instanceof Space))notSpace = false;
-        if((x>8&&x<0)&&(y>8&&y<0)){
-            inBoard = false;
-        }
-        if(((this.X!=x && this.Y==y)||(this.X==x && this.Y!=y))&&(inBoard = true)&&(notSpace = true)){
+        if((x>8&&x<0)&&(y>8&&y<0))inBoard = false;
+        if(!(X!=x && Y==y))towardBackward = false;
+        if(!(X==x && Y!=y))leftRight = false;
+        if(((towardBackward = true)&&(notSpace = true)&&(inBoard = true))||(((leftRight = true)&&(notSpace = true)&&(inBoard = true)))){
             this.X = x;
             this.Y = y;
             return true;
