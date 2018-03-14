@@ -22,7 +22,7 @@ public class Board
         this.pieces[0][6] = Knight.factory("B",0,6);
         this.pieces[0][7] = Rook.factory("B",0,7);
         for(int i=0;i<8;i++){
-            pieces[1][i] = Pawn.factory(b,"B",1,i);
+            pieces[1][i] = Pawn.factory("B",1,i);
         }
         for(int i=2;i<6;i++){
             for(int j = 0;j<8;j++){
@@ -30,7 +30,7 @@ public class Board
             }
         }
         for(int i = 0;i<8;i++){
-            pieces[6][i] = Pawn.factory(b,"W",6,i);
+            pieces[6][i] = Pawn.factory("W",6,i);
         }
         this.pieces[7][0] = Rook.factory("W",7,0);
         this.pieces[7][1] = Knight.factory("W",7,1);
@@ -76,6 +76,22 @@ public class Board
             System.out.println("you cannot eat the piece in the same side!");
             return ;
         }//prevent player eat the same color piece.
+        if(pieces[x1][y1] instanceof Pawn){
+          boolean front=true, OBleft=true ,OBright=true;
+          if(!(pieces[x1+1][y1] instanceof Space))front = false;
+          if (pieces[x1+1][y1+1] instanceof Space) OBright = false;
+          if (pieces[x1-1][y1+1] instanceof Space) OBright = false;
+          if(((x2==x1+1&&y2==y1)&&front == true)||((x2==x1+1&&y2==y1+1)&&OBright == true)||((x2==x1+1&&y2==y1+1)&&OBleft == true)){
+            pieces[x2][y2]=pieces[x1][y1];
+            pieces[x1][y1].move(x2,y2);
+            pieces[x1][y1]= new Space();  
+          }
+          else {
+              System.out.println("wrong");
+              System.out.println(front);
+          }
+          return;
+        }
         if(pieces[x1][y1].move(x2,y2)){
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1]= new Space();

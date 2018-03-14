@@ -1,8 +1,9 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Space()
-comment1.params=x\ y
-comment1.target=boolean\ move(int,\ int)
-comment2.params=
-comment2.target=java.lang.String\ toString()
-numComments=3
+comment0.target=Space
+comment1.params=
+comment1.target=Space()
+comment2.params=x\ y
+comment2.target=boolean\ move(int,\ int)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

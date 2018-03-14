@@ -3,24 +3,20 @@ public class Pawn extends Piece
 {
     static private int count = 0;
     String name = "Pawn";
-    private Pawn(Board b,String color,int X, int Y)
+    private Pawn(String color,int X, int Y)
     {
-        super(b,color,X,Y);
+        super(color,X,Y);
     }
-    static public Pawn factory(Board b, String color,int X, int Y){
+    static public Pawn factory(String color,int X, int Y){
         count++;
         if(count>16){
             throw new Error("You could only initialize 16 Pawns.");
         }
-        return new Pawn(b,color, X, Y);
+        return new Pawn(color, X, Y);
     }
     public boolean move(int x, int y)
     {
-        boolean front=true, OBleft=true ,OBright=true;
-        if(!(gameBoard.getPiece(X+1,Y) instanceof Space))front = false;
-        if (gameBoard.getPiece(X+1,Y+1) instanceof Space) OBright = false;
-        if (gameBoard.getPiece(X-1,Y+1) instanceof Space) OBright = false;
-        if(((x==X+1&&y==Y)&&front == true)||((x==X+1&&y==Y+1)&&OBright == true)||((x==X+1&&y==Y+1)&&OBleft == true)){
+        if((x==X+1&&y==Y)||(x==X+1&&y==Y+1)||(x==X+1&&y==Y+1)){
             this.X = x;
             this.Y = Y;
             return true;

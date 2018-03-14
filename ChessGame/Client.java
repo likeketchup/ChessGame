@@ -8,10 +8,10 @@
 public class Client
 {
     // instance variables - replace the example below with your own
-    public static void main(String[] args){
+    public static void h(){
         Board a = Board.factory();
         System.out.println(a);
-        a.movePiece(2,5,2,6);
+        a.movePiece(1,5,2,5);
         System.out.println(a);
     }
 }

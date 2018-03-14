@@ -9,3 +9,6 @@ ChessGame/.DS_Store
 *.ctxt
 *.class
 *.class
+.DS_Store
+ChessGame/package.bluej
+ChessGame/.DS_Store

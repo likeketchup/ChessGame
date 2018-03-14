@@ -26,14 +26,14 @@ public class Knight extends Piece
         boolean rightBackward = true;
         boolean backwardLeft = true;
         boolean backwardRight = true;
-        if(gameBoard.getPiece(X-1,Y+2) instanceof Space)fowardLeft = false;
+        /*if(gameBoard.getPiece(X-1,Y+2) instanceof Space)fowardLeft = false;
         if(gameBoard.getPiece(X+1,Y+2) instanceof Space) fowardRight = false;
         if(gameBoard.getPiece(X-2,Y+1) instanceof Space) leftFoward = false;
         if(gameBoard.getPiece(X-2,Y-1) instanceof Space)leftBackward = false;
         if(gameBoard.getPiece(X+2,Y+1) instanceof Space) rightFoward = false;
         if(gameBoard.getPiece(X+2,Y-1) instanceof Space) rightBackward = false;
         if(gameBoard.getPiece(X-1,Y-2) instanceof Space) backwardLeft = false;
-        if(gameBoard.getPiece(X+1,Y-2) instanceof Space) backwardRight = false;
+        if(gameBoard.getPiece(X+1,Y-2) instanceof Space) backwardRight = false;*/
         if((x>8&&x<0)&&(y>8&&y<0)){
             inBoard = false;
         }

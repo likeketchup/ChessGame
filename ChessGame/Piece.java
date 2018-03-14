@@ -2,17 +2,10 @@ abstract public class Piece
 {   
     String color;
     String name;
-    Board gameBoard;
     int X;//coordinate
     int Y;//coordinate
     Piece(){}
-    Piece(Board b, String color, int X, int Y){
-        this.gameBoard = b;
-        this.color = color;
-        this.X = X;
-        this.Y = Y;
-    }
-    Piece( String color, int X, int Y){
+    Piece( String color, int Y, int X){
         this.color = color;
         this.X = X;
         this.Y = Y;

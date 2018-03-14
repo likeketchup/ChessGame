@@ -1,9 +1,8 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Piece()
-comment1.params=b\ color\ X\ Y
-comment1.target=Piece(Board,\ java.lang.String,\ int,\ int)
-comment2.params=color\ X\ Y
+comment0.target=Piece
+comment1.params=
+comment1.target=Piece()
+comment2.params=color\ Y\ X
 comment2.target=Piece(java.lang.String,\ int,\ int)
 comment3.params=x\ y
 comment3.target=boolean\ move(int,\ int)
