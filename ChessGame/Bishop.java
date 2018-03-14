@@ -17,9 +17,14 @@ public class Bishop extends Piece
 
     public boolean move(int x, int y)
     {
+        boolean stepSideways= X-x==y-Y || X-x==-(y-Y);
+        if(stepSideways)
+        {
+            return true;
+        }  
         return true;
     }
     public String toString(){
-        return super.color+this.name.substring(0,1);
+        return super.color+this.name.substring(0,2);
     }
 }
