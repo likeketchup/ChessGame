@@ -85,16 +85,19 @@ public class Board
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1].move(x2,y2);
             pieces[x1][y1]= new Space();  
+            System.out.println("Move Success!");
           }
           else {
               System.out.println("wrong");
-              System.out.println(front);
+              //System.out.println(front);
           }
           return;
         }
         if(pieces[x1][y1].move(x2,y2)){
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1]= new Space();
+            System.out.println("Move Success!");
+            return ;
         }
     }
     public Piece getPiece(int x,int y){
