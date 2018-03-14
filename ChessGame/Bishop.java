@@ -1,4 +1,3 @@
-
 public class Bishop extends Piece
 {
     static int count = 0;
@@ -17,10 +16,11 @@ public class Bishop extends Piece
 
     public boolean move(int x, int y)
     {
-        boolean stepSideways= X-x==y-Y || X-x==-(y-Y);
-        if(stepSideways)
+        boolean stepSideways= ((X-x==y-Y) || (X-x==-(y-Y)));
+        if(stepSideways == false)
         {
-            return true;
+            System.out.println("it shoud step sideways!");
+            return false;
         }  
         return true;
     }
