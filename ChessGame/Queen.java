@@ -16,6 +16,13 @@ public class Queen extends Piece
     }
     public boolean move(int x, int y)
     {
+        boolean stepSideways= ((X-x==y-Y) || (X-x==-(y-Y)));
+        boolean stepStraightUpDownRightLeft= X==x || Y==y ;
+        if(!stepSideways && !stepStraightUpDownRightLeft)
+        {
+            System.out.println("this operation is illegal!");
+            return false;
+        }  
         return true;
     }
     public String toString(){

@@ -64,7 +64,7 @@ public class Board
         count++;
         if(count>1){
             throw new Error("you can only initialize one board");
-        }
+        }  
         return b;
     }
     public void movePiece(int x1, int y1, int x2,int y2){

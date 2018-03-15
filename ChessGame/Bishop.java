@@ -17,9 +17,9 @@ public class Bishop extends Piece
     public boolean move(int x, int y)
     {
         boolean stepSideways= ((X-x==y-Y) || (X-x==-(y-Y)));
-        if(stepSideways == false)
+        if(!stepSideways)
         {
-            System.out.println("it shoud step sideways!");
+            System.out.println("this operation is illegal!");
             return false;
         }  
         return true;
