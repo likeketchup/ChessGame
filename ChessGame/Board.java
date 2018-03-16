@@ -63,18 +63,18 @@ public class Board
     static public Board factory(){
         count++;
         if(count>1){
-            throw new Error("you can only initialize one board");
+            throw new RuntimeException("you can only initialize one board");
         }  
         return b;
     }
     public void movePiece(int x1, int y1, int x2,int y2){
         if(pieces[x1][y1] instanceof Space){
-            System.out.println("there is not have any piece in your appointed coordinate.");
-            return ;
+            throw new RuntimeException("there is not have any piece in your appointed coordinate.");
+            
         }//prevent player to move the space.
         if(pieces[x1][y1].color==pieces[x2][y2].color){
-            System.out.println("you cannot eat the piece in the same side!");
-            return ;
+            throw new RuntimeException("you cannot eat the piece in the same side!");
+            
         }//prevent player eat the same color piece.
         if(pieces[x1][y1] instanceof Pawn){
           boolean front=true, OBleft=true ,OBright=true;
@@ -88,7 +88,7 @@ public class Board
             System.out.println("Move Success!");
           }
           else {
-              System.out.println("wrong");
+              throw new RuntimeException("wrong");
               //System.out.println(front);
           }
           return;
