@@ -1,4 +1,3 @@
-
 public class Knight extends Piece
 {
     static int count = 0;
@@ -9,24 +8,27 @@ public class Knight extends Piece
     }
     static public Knight factory(String color,int X, int Y){
         count++;
-        if(count>10){
+        if(count>4){
             throw new Error("You could only initialize 4 Knights.");
         }
         return new Knight(color, X, Y);
     }
     public boolean move(int x, int y)
     {
-        boolean inBoard = true;
-        if((x>8&&x<0)&&(y>8&&y<0))inBoard = false;
-        if((((x==X-1)&&(y==Y+2))||((x==X+1)&&(y==Y+2))||((x==X-2)&&(y==Y+1))||
-             ((x==X-2)&&(y==Y-1))||((x==X+2)&&(y==Y+1))||((x==X+2)&&(y==Y-1))||
-             ((x==X-1)&&(y==Y-2))||((x==X+1)&&(y==Y-2)))&&(inBoard = true)
+        if(   (x==X-1&&y==Y+2)||
+              (x==X+1&&y==Y+2)||
+              (x==X-2&&y==Y+1)||
+              (x==X-2&&y==Y-1)||
+              (x==X+2&&y==Y+1)||
+              (x==X+2&&y==Y-1)||
+              (x==X-1&&y==Y-2)||
+              (x==X+1&&y==Y-2)
            ){
             this.X = x;
             this.Y = y;
             return true;
         }
-        return false;//modify latter
+        return false;
     }
     public String toString(){
         return super.color+this.name.substring(0,2);
