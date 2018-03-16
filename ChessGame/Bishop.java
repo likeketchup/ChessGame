@@ -19,8 +19,7 @@ public class Bishop extends Piece
         boolean stepSideways= ((X-x==y-Y) || (X-x==-(y-Y)));
         if(!stepSideways)
         {
-            System.out.println("this operation is illegal!");
-            return false;
+            throw new RuntimeException("this operation is illegal!");
         }  
         return true;
     }

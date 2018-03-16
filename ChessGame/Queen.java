@@ -20,8 +20,7 @@ public class Queen extends Piece
         boolean stepStraightUpDownRightLeft= X==x || Y==y ;
         if(!stepSideways && !stepStraightUpDownRightLeft)
         {
-            System.out.println("this operation is illegal!");
-            return false;
+            throw new RuntimeException("this operation is illegal!");
         }  
         return true;
     }
