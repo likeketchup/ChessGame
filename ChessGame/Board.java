@@ -80,7 +80,7 @@ public class Board
           boolean front=true, OBleft=true ,OBright=true;
           if(!(pieces[x1+1][y1] instanceof Space))front = false;
           if (pieces[x1+1][y1+1] instanceof Space) OBright = false;
-          if (pieces[x1-1][y1+1] instanceof Space) OBright = false;
+          if (pieces[x1-1][y1+1] instanceof Space) OBleft = false;
           if(((x2==x1+1&&y2==y1)&&front == true)||((x2==x1+1&&y2==y1+1)&&OBright == true)||((x2==x1+1&&y2==y1+1)&&OBleft == true)){
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1].move(x2,y2);
