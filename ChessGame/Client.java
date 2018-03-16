@@ -11,7 +11,7 @@ public class Client
     public static void h(){
         Board a = Board.factory();
         System.out.println(a);
-        a.movePiece(0,4,2,5);
+        a.movePiece(7,1,5,0);
         System.out.println(a);
     }
 }
