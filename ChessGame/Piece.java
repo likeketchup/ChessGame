@@ -5,7 +5,7 @@ abstract public class Piece
     int X;//coordinate
     int Y;//coordinate
     Piece(){}
-    Piece( String color, int Y, int X){
+    Piece(String color, int Y, int X){
         this.color = color;
         this.X = X;
         this.Y = Y;

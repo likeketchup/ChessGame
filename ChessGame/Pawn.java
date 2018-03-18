@@ -16,12 +16,9 @@ public class Pawn extends Piece
     }
     public boolean move(int x, int y)
     {
-        if((x==X+1&&y==Y)||(x==X+1&&y==Y+1)||(x==X+1&&y==Y+1)){
-            this.X = x;
-            this.Y = Y;
-            return true;
-        }
-        return false;
+        this.X = x;
+        this.Y = y;
+        return true;
     }
     public String toString(){
         return super.color+this.name.substring(0,1);

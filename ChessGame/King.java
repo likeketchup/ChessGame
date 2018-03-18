@@ -16,6 +16,9 @@ public class King extends Piece
     }
     public boolean move(int x, int y)
     {
+        if(Math.abs(x-X)>1||Math.abs(y-Y)>1) return false;
+        this.X=x;
+        this.Y=y;
         return true;
     }
     public String toString(){
