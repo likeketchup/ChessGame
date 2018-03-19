@@ -24,7 +24,7 @@ public class Player
     //please notice that the first section of the coordinate in our project is Y!
     public int[] translator(String p){
         int[] coordinate = new int[2];
-        coordinate[0] = Math.abs(Integer.parseInt(p.substring(1,2))-8);
+        coordinate[0] = Math.abs(Integer.parseInt(p.substring(1,2))-1);
         coordinate[1] = ((int)p.charAt(0))-65;
         return coordinate;
     }

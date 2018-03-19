@@ -11,10 +11,11 @@ public class Client
     public static void main(String[] args){
         Board a = Board.factory();
         Player p1 = Player.factory("Eason",a);
-        p1.movePiece("A7","A6");
+        p1.movePiece("A2","A3");
         //System.out.println(a);
         //a.movePiece(1,0,2,0);
         //a.movePiece(1,4,2,5);
         System.out.println(a);
     }
 }
+
