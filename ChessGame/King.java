@@ -14,9 +14,12 @@ public class King extends Piece
         }
         return new King(color, X, Y);
     }
-    public boolean move(int x, int y)
+    public boolean move(int y, int x)
     {
-        if(Math.abs(x-X)>1||Math.abs(y-Y)>1) return false;
+        if(Math.abs(x-X)>1||Math.abs(y-Y)>1){
+            System.out.println("Move failed");
+            return false;
+        }
         this.X=x;
         this.Y=y;
         return true;

@@ -14,7 +14,7 @@ public class Pawn extends Piece
         }
         return new Pawn(color, X, Y);
     }
-    public boolean move(int x, int y)
+    public boolean move(int y, int x)
     {
         this.X = x;
         this.Y = y;
