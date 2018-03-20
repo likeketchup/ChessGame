@@ -15,11 +15,6 @@ public class Knight extends Piece
     }
     public boolean move(int y, int x)
     {
-        System.out.println(X);
-        System.out.println(Y);
-        System.out.println(x);
-        System.out.println(y);
-
         if(((Math.abs(x-X)+Math.abs(y-Y))!=3)&&((Math.abs(x-X)*Math.abs(y-Y))!=2)){
             
             return false;
