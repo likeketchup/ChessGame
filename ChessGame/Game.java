@@ -24,8 +24,10 @@ public class Game
         Player blackPlayer=Player.factory(secondName,b);
         System.out.println("\n");
 
-        while(b.judgment())
+        while(continuee.equals("yy"))
         {
+            System.out.println(b);
+
             System.out.println("White play");
             System.out.print("Move piece from (");String previousOne=scn.nextLine();System.out.print(",");String previousTwo=scn.nextLine();System.out.print(") to (");
             String laterOne=scn.nextLine();System.out.print(",");String laterTwo=scn.nextLine();System.out.println(")");
@@ -36,7 +38,6 @@ public class Game
             laterOne=scn.nextLine();System.out.print(",");laterTwo=scn.nextLine();System.out.println(")");
             blackPlayer.movePiece(previousOne+previousTwo, laterOne+laterTwo);
 
-            System.out.println(b);
         }
 
 
