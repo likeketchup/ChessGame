@@ -82,7 +82,7 @@ public class Board
           if(!(pieces[x1+dir][y1] instanceof Space))front = false;
           if (pieces[x1+dir][y1+dir] instanceof Space) OBright = false;
           if (pieces[x1-dir][y1+dir] instanceof Space) OBleft = false;
-          if(((x2==x1+dir&&y2==y1)&&front == true)||((x2==x1+dir&&y2==y1+dir)&&OBright == true)||((x2==x1+dir&&y2==y1+dir)&&OBleft == true)||(x2==x1+dir*2&&y2==y1&&fisrtTime==true)){
+          if(((x2==x1+dir&&y2==y1)&&front == true)||((x2==x1+dir&&y2==y1+dir)&&OBright == true)||((x2==x1+dir&&y2==y1+dir)&&OBleft == true)||(x2==x1+dir*2&&y2==y1&&fisrtTime==true&&front==true)){
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1].move(x2,y2);
             pieces[x1][y1]= new Space();  
