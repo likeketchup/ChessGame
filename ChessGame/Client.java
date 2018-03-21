@@ -6,7 +6,7 @@ public class Client
         Player p1 = Player.factory("Eason",a);
         p1.movePiece("B1","A3");//Test the movement of the Knight
         p1.movePiece("D2","D3");//Test the movement of the Black Pawn
-        p1.movePiece("H7","H6");//Test the movement of the White Pawn
+        p1.movePiece("H7","H5");//Test the movement of the White Pawn move first time.
         p1.movePiece("D1","D2");//Test the movement of the King
         p1.movePiece("A3","B5");
         p1.movePiece("C1","A3");//Test the movement of the Bishop

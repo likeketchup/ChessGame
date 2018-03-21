@@ -1,10 +1,4 @@
 import java.util.*;
-/**
- * Write a description of class borad here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Board
 {
     // instance variables - replace the example below with your own
@@ -78,14 +72,17 @@ public class Board
         }//prevent player eat the same color piece.
         if(pieces[x1][y1] instanceof Pawn){
           boolean isBlack = true;
+          int dx = Math.abs(x1-x2);
+          int dy = Math.abs(y1-y2);
           if(pieces[x1][y1].color == "W") isBlack = false;
           int dir = 1;
           if(isBlack == false) dir = -1;
-          boolean front=true, OBleft=true ,OBright=true;
+          boolean front=true, OBleft=true ,OBright=true, fisrtTime = false;
+          if((pieces[x1+dir*2][y1] instanceof Space)&&pieces[x1][y1].hasMove==false) fisrtTime = true;
           if(!(pieces[x1+dir][y1] instanceof Space))front = false;
           if (pieces[x1+dir][y1+dir] instanceof Space) OBright = false;
           if (pieces[x1-dir][y1+dir] instanceof Space) OBleft = false;
-          if(((x2==x1+dir&&y2==y1)&&front == true)||((x2==x1+dir&&y2==y1+dir)&&OBright == true)||((x2==x1+dir&&y2==y1+dir)&&OBleft == true)){
+          if(((x2==x1+dir&&y2==y1)&&front == true)||((x2==x1+dir&&y2==y1+dir)&&OBright == true)||((x2==x1+dir&&y2==y1+dir)&&OBleft == true)||(x2==x1+dir*2&&y2==y1&&fisrtTime==true)){
             pieces[x2][y2]=pieces[x1][y1];
             pieces[x1][y1].move(x2,y2);
             pieces[x1][y1]= new Space();  

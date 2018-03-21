@@ -1,6 +1,7 @@
 
 public class Pawn extends Piece
 {
+
     static private int count = 0;
     String name = "Pawn";
     private Pawn(String color,int X, int Y)
@@ -16,6 +17,7 @@ public class Pawn extends Piece
     }
     public boolean move(int y, int x)
     {
+        hasMove = true;
         this.X = x;
         this.Y = y;
         return true;

@@ -2,6 +2,7 @@ abstract public class Piece
 {   
     String color;
     String name;
+    boolean hasMove = false;
     int X;//coordinate
     int Y;//coordinate
     Piece(){}
