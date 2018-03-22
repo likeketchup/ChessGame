@@ -61,31 +61,31 @@ public class Board
         }  
         return b;
     }
-    public void movePiece(int x1, int y1, int x2,int y2){
-        if(pieces[x1][y1] instanceof Space){
+    public void movePiece(int y1, int x1, int y2,int x2){
+        if(pieces[y1][x1] instanceof Space){
             throw new RuntimeException("there is not have any piece in your appointed coordinate.");
             
         }//prevent player to move the space.
-        if(pieces[x1][y1].color==pieces[x2][y2].color){
+        if(pieces[y1][x1].color==pieces[y2][x2].color){
             throw new RuntimeException("you cannot eat the piece in the same side!");
             
         }//prevent player eat the same color piece.
-        if(pieces[x1][y1] instanceof Pawn){
+        if(pieces[y1][x1] instanceof Pawn){
           boolean isBlack = true;
-          int dx = Math.abs(x1-x2);
-          int dy = Math.abs(y1-y2);
-          if(pieces[x1][y1].color == "W") isBlack = false;
+          int dx = Math.abs(y1-y2);
+          int dy = Math.abs(x1-x2);
+          if(pieces[y1][x1].color == "W") isBlack = false;
           int dir = 1;
           if(isBlack == false) dir = -1;
           boolean front=true, OBleft=true ,OBright=true, fisrtTime = false;
-          if((pieces[x1+dir*2][y1] instanceof Space)&&pieces[x1][y1].hasMove==false) fisrtTime = true;
-          if(!(pieces[x1+dir][y1] instanceof Space))front = false;
-          if (pieces[x1+dir][y1+dir] instanceof Space) OBright = false;
-          if (pieces[x1-dir][y1+dir] instanceof Space) OBleft = false;
-          if(((x2==x1+dir&&y2==y1)&&front == true)||((x2==x1+dir&&y2==y1+dir)&&OBright == true)||((x2==x1+dir&&y2==y1+dir)&&OBleft == true)||(x2==x1+dir*2&&y2==y1&&fisrtTime==true&&front==true)){
-            pieces[x2][y2]=pieces[x1][y1];
-            pieces[x1][y1].move(x2,y2);
-            pieces[x1][y1]= new Space();  
+          if((pieces[y1+dir*2][x1] instanceof Space)&&pieces[y1][x1].hasMove==false) fisrtTime = true;
+          if(!(pieces[y1+dir][x1] instanceof Space))front = false;
+          if (pieces[y1+dir][x1+dir] instanceof Space) OBright = false;
+          if (pieces[y1-dir][x1+dir] instanceof Space) OBleft = false;
+          if(((y2==y1+dir&&x2==x1)&&front == true)||((y2==y1+dir&&x2==x1+dir)&&OBright == true)||((y2==y1+dir&&x2==x1+dir)&&OBleft == true)||(y2==y1+dir*2&&x2==x1&&fisrtTime==true&&front==true)){
+            pieces[y2][x2]=pieces[y1][x1];
+            pieces[y1][x1].move(y2,x2);
+            pieces[y1][x1]= new Space();
             System.out.println("Move Success!");
           }
           else {
@@ -94,9 +94,9 @@ public class Board
           }
           return;
         }
-        if(pieces[x1][y1].move(x2,y2)){
-            pieces[x2][y2]=pieces[x1][y1];
-            pieces[x1][y1]= new Space();
+        if(pieces[y1][x1].move(y2,x2)){
+            pieces[y2][x2]=pieces[y1][x1];
+            pieces[y1][x1]= new Space();
             System.out.println("Move Success!");
             return ;
         }
