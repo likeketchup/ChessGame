@@ -14,14 +14,16 @@ public class Queen extends Piece
         }
         return new Queen(color, X, Y);
     }
-    public boolean move(int x, int y)
+    public boolean move(int y, int x)
     {
-        boolean stepSideways= ((X-x==y-Y) || (X-x==-(y-Y)));
-        boolean stepStraightUpDownRightLeft= X==x || Y==y ;
+        boolean stepSideways= ((Math.abs(X-x)==Math.abs(y-Y)));
+        boolean stepStraightUpDownRightLeft= (X==x&&Y!=y) || (Y==y&&X!=x) ;
         if(!stepSideways && !stepStraightUpDownRightLeft)
         {
-            throw new RuntimeException("this operation is illegal!");
-        }  
+            return false;
+        }
+        this.X = x;
+        this.Y = y;
         return true;
     }
     public String toString(){
