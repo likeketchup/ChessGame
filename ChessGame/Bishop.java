@@ -14,13 +14,15 @@ public class Bishop extends Piece
         return new Bishop(color, X, Y);
     }
 
-    public boolean move(int x, int y)
+    public boolean move(int y, int x)
     {
-        boolean stepSideways= ((X-x==y-Y) || (X-x==-(y-Y)));
+        boolean stepSideways= (Math.abs(x-X)==Math.abs(y-Y));
         if(!stepSideways)
         {
-            throw new RuntimeException("this operation is illegal!");
-        }  
+            return false;
+        }
+        this.X=x;
+        this.Y=y;
         return true;
     }
     public String toString(){
