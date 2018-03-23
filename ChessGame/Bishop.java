@@ -14,7 +14,7 @@ public class Bishop extends Piece
         return new Bishop(color, X, Y);
     }
 
-    public boolean move(int y, int x)
+    public boolean move(int y, int x, Piece[][] b)
     {
         boolean stepSideways= (Math.abs(x-X)==Math.abs(y-Y));
         if(!stepSideways)

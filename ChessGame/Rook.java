@@ -13,7 +13,7 @@ public class Rook extends Piece
         }
         return new Rook(color, X, Y);
     }
-    public boolean move(int y, int x){
+    public boolean move(int y, int x, Piece[][] b){
         if((X!=x && Y==y)||(X==x && Y!=y)){
             hasMove = true;
             this.X = x;

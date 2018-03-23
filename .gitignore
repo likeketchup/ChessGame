@@ -20,3 +20,5 @@ ChessGame/Client.class
 ChessGame/Client.ctxt
 ChessGame/Client.java
 ChessGame/Player.java
+*.class
+*.ctxt

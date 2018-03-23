@@ -14,7 +14,7 @@ public class Queen extends Piece
         }
         return new Queen(color, X, Y);
     }
-    public boolean move(int y, int x)
+    public boolean move(int y, int x, Piece[][] b)
     {
         boolean stepSideways= ((Math.abs(X-x)==Math.abs(y-Y)));
         boolean stepStraightUpDownRightLeft= (X==x&&Y!=y)||(Y==y&&X!=x) ;

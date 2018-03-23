@@ -14,7 +14,7 @@ public class King extends Piece
         }
         return new King(color, X, Y);
     }
-    public boolean move(int y, int x)
+    public boolean move(int y, int x,Piece[][] b)
     {
         if(Math.abs(x-X)>1||Math.abs(y-Y)>1){
             System.out.println("Move failed");

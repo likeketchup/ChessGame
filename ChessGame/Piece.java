@@ -11,7 +11,7 @@ abstract public class Piece
         this.X = X;
         this.Y = Y;
     }
-    abstract public boolean move(int x, int y); //change the coordinate and return the result of the movement.
+    abstract public boolean move(int x, int y, Piece[][] b); //change the coordinate and return the result of the movement.
     public String getXY(){//get the coordinate
         return "("+X+","+Y+")";
     }

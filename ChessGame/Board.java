@@ -84,7 +84,7 @@ public class Board
           if (pieces[y1-dir][x1+dir] instanceof Space) OBleft = false;
           if(((y2==y1+dir&&x2==x1)&&front == true)||((y2==y1+dir&&x2==x1+dir)&&OBright == true)||((y2==y1+dir&&x2==x1+dir)&&OBleft == true)||(y2==y1+dir*2&&x2==x1&&fisrtTime==true&&front==true)){
             pieces[y2][x2]=pieces[y1][x1];
-            pieces[y1][x1].move(y2,x2);
+            pieces[y1][x1].move(y2,x2,this.pieces);
             pieces[y1][x1]= new Space();
             System.out.println("Move Success!");
           }
@@ -94,27 +94,27 @@ public class Board
           }
           return;
         }
-        if(pieces[y1][x1].move(y2,x2)){
+        if(pieces[y1][x1].move(y2,x2, this.pieces)){
             pieces[y2][x2]=pieces[y1][x1];
             pieces[y1][x1]= new Space();
             System.out.println("Move Success!");
             return ;
         }
-        if((pieces[x1][y1] instanceof King)&&(pieces[x1][y1].move(x1-2,y2))
+        if((pieces[x1][y1] instanceof King)&&(pieces[x1][y1].move(x1-2,y2, this.pieces))
                 &&(pieces[x1][1] instanceof Space)
                 &&(pieces[x1][2] instanceof Space)
                 &&(pieces[x1][3] instanceof Space)
                 ){
-            pieces[x1][0].setXY(x1,3);
+            //pieces[x1][0].setXY(x1,3);
             pieces[x1][3]=pieces[x1][0];
             pieces[x1][0]=new Space();
             System.out.println("Move Success");
         }
-        if((pieces[x2][y2]==pieces[x1+2][y2])&&(pieces[x1][y1].move(x1+2,y2))
+        if((pieces[x2][y2]==pieces[x1+2][y2])&&(pieces[x1][y1].move(x1+2,y2, this.pieces))
                 &&(pieces[x1][5] instanceof Space)
                 &&(pieces[x1][6] instanceof Space)
                 ){
-            pieces[x1][7].setXY(x1,5);
+            //pieces[x1][7].setXY(x1,5);
             pieces[x1][7]=pieces[x1][5];
             pieces[x1][7]=new Space();
             System.out.println("Move Success");

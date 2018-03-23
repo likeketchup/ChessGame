@@ -1,11 +1,11 @@
 #BlueJ class context
 comment0.target=Knight
-comment1.params=color\ X\ Y
+comment1.params=color\ Y\ X
 comment1.target=Knight(java.lang.String,\ int,\ int)
 comment2.params=color\ X\ Y
 comment2.target=Knight\ factory(java.lang.String,\ int,\ int)
-comment3.params=x\ y
-comment3.target=boolean\ move(int,\ int)
+comment3.params=y\ x\ b
+comment3.target=boolean\ move(int,\ int,\ Piece[][])
 comment4.params=
 comment4.target=java.lang.String\ toString()
 numComments=5

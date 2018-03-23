@@ -13,7 +13,7 @@ public class Knight extends Piece
         }
         return new Knight(color, X, Y);
     }
-    public boolean move(int y, int x)
+    public boolean move(int y, int x, Piece[][] b)
     {
         if(((Math.abs(x-X)+Math.abs(y-Y))!=3)&&((Math.abs(x-X)*Math.abs(y-Y))!=2)){
             
