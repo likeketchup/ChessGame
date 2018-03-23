@@ -10,8 +10,8 @@ public class Board
         this.pieces[0][0] = Rook.factory("B",0,0);
         this.pieces[0][1] = Knight.factory("B",0,1);
         this.pieces[0][2] = Bishop.factory("B",0,2);
-        this.pieces[0][3] = King.factory("B",0,3);
-        this.pieces[0][4] = Queen.factory("B",0,4);
+        this.pieces[0][4] = King.factory("B",0,4);
+        this.pieces[0][3] = Queen.factory("B",0,3);
         this.pieces[0][5] = Bishop.factory("B",0,5);
         this.pieces[0][6] = Knight.factory("B",0,6);
         this.pieces[0][7] = Rook.factory("B",0,7);
@@ -29,8 +29,8 @@ public class Board
         this.pieces[7][0] = Rook.factory("W",7,0);
         this.pieces[7][1] = Knight.factory("W",7,1);
         this.pieces[7][2] = Bishop.factory("W",7,2);
-        this.pieces[7][3] = King.factory("W",7,3);
-        this.pieces[7][4] = Queen.factory("W",7,4);
+        this.pieces[7][4] = King.factory("W",7,4);
+        this.pieces[7][3] = Queen.factory("W",7,3);
         this.pieces[7][5] = Bishop.factory("W",7,5);
         this.pieces[7][6] = Knight.factory("W",7,6);
         this.pieces[7][7] = Rook.factory("W",7,7);
@@ -100,7 +100,28 @@ public class Board
             System.out.println("Move Success!");
             return ;
         }
+        if((pieces[x1][y1] instanceof King)&&(pieces[x1][y1].move(x1-2,y2))
+                &&(pieces[x1][1] instanceof Space)
+                &&(pieces[x1][2] instanceof Space)
+                &&(pieces[x1][3] instanceof Space)
+                ){
+            pieces[x1][0].setXY(x1,3);
+            pieces[x1][3]=pieces[x1][0];
+            pieces[x1][0]=new Space();
+            System.out.println("Move Success");
+        }
+        if((pieces[x2][y2]==pieces[x1+2][y2])&&(pieces[x1][y1].move(x1+2,y2))
+                &&(pieces[x1][5] instanceof Space)
+                &&(pieces[x1][6] instanceof Space)
+                ){
+            pieces[x1][7].setXY(x1,5);
+            pieces[x1][7]=pieces[x1][5];
+            pieces[x1][7]=new Space();
+            System.out.println("Move Success");
+        }
+
     }
+
     public Piece getPiece(int x,int y){
         return pieces[x][y];
     }
