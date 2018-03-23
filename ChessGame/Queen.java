@@ -17,7 +17,7 @@ public class Queen extends Piece
     public boolean move(int y, int x)
     {
         boolean stepSideways= ((Math.abs(X-x)==Math.abs(y-Y)));
-        boolean stepStraightUpDownRightLeft= (X==x&&Y!=y) || (Y==y&&X!=x) ;
+        boolean stepStraightUpDownRightLeft= (X==x&&Y!=y)||(Y==y&&X!=x) ;
         if(!stepSideways && !stepStraightUpDownRightLeft)
         {
             return false;
