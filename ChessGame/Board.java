@@ -125,4 +125,12 @@ public class Board
     public Piece getPiece(int x,int y){
         return pieces[x][y];
     }
+
+
+
+    public String getPieceColor(int y, int x)
+    {
+        return pieces[y][x].color;
+
+    }
 }
