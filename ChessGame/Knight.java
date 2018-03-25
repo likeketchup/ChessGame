@@ -16,8 +16,7 @@ public class Knight extends Piece
     public boolean move(int y, int x, Piece[][] b)
     {
         if(((Math.abs(x-X)+Math.abs(y-Y))!=3)&&((Math.abs(x-X)*Math.abs(y-Y))!=2)){
-            
-            return false;
+            throw new RuntimeException("You cannot do this! Move again!");
         }
 
         this.X = x;

@@ -14,16 +14,50 @@ public class Rook extends Piece
         return new Rook(color, X, Y);
     }
     public boolean move(int y, int x, Piece[][] b){
+        int difference = 0;
         if((X!=x && Y==y)||(X==x && Y!=y)){
+            //Y block
+            if(y>this.Y){
+                difference = Math.abs(y - this.Y);
+                for(int i = Y+1;Y<y;i++){
+                    if(b[i][x] instanceof Space == false){
+                        throw new RuntimeException("You cannot do this! Move again!");
+                    }
+                }
+            }
+            else if(y< this.Y){
+                difference = Math.abs(y - this.Y);
+                for(int i = y+1;y<Y;i++){
+                    if(b[i][x] instanceof Space == false){
+                        throw new RuntimeException("You cannot do this! Move again!");
+                    }
+                }
+            }
+            // X block
+            if(x>this.X){
+                difference = Math.abs(x - this.X);
+                for(int i = X+1;X<x;i++){
+                    if(b[y][i] instanceof Space == false){
+                        throw new RuntimeException("You cannot do this! Move again!");
+                    }
+                }
+            }
+            else if(x< this.X){
+                difference = Math.abs(x - this.X);
+                for(int i = x+1;x<X;i++){
+                    if(b[y][i] instanceof Space == false){
+                        throw new RuntimeException("You cannot do this! Move again!");
+                    }
+                }
+            }
             hasMove = true;
             this.X = x;
             this.Y = y;
             return true;
         }
-        System.out.println(x);
-        System.out.println(y);
-        return false;
-
+        else{
+            throw new RuntimeException("You cannot do this! Move again!");
+        }
 
     }
     public boolean hasMove(){

@@ -17,8 +17,7 @@ public class King extends Piece
     public boolean move(int y, int x,Piece[][] b)
     {
         if(Math.abs(x-X)>1||Math.abs(y-Y)>1){
-            System.out.println("Move failed");
-            return false;
+            throw new RuntimeException("You cannot do this! Move again!");
         }
         this.X=x;
         this.Y=y;
