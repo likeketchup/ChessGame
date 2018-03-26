@@ -4,7 +4,7 @@ public class Game
 
     public static void main(String[] args){
 
-        try {  } catch(RuntimeException e){throw e; }
+        //try {  } catch(RuntimeException e){throw e; }
 
         Scanner scn=new Scanner(System.in);
         String continuee="";
