@@ -19,16 +19,16 @@ public class Rook extends Piece
             //Y block
             if(y>this.Y){
                 difference = Math.abs(y - this.Y);
-                for(int i = Y+1;Y<y;i++){
-                    if(b[i][x] instanceof Space == false){
+                for(int i = 1;i<difference;i++){
+                    if(b[Y+i][x] instanceof Space == false){
                         throw new RuntimeException("You cannot do this! Move again!");
                     }
                 }
             }
             else if(y< this.Y){
                 difference = Math.abs(y - this.Y);
-                for(int i = y+1;y<Y;i++){
-                    if(b[i][x] instanceof Space == false){
+                for(int i = 1;i<difference;i++){
+                    if(b[y+i][x] instanceof Space == false){
                         throw new RuntimeException("You cannot do this! Move again!");
                     }
                 }
@@ -36,16 +36,16 @@ public class Rook extends Piece
             // X block
             if(x>this.X){
                 difference = Math.abs(x - this.X);
-                for(int i = X+1;X<x;i++){
-                    if(b[y][i] instanceof Space == false){
+                for(int i = 1;i<difference;i++){
+                    if(b[y][X+i] instanceof Space == false){
                         throw new RuntimeException("You cannot do this! Move again!");
                     }
                 }
             }
             else if(x< this.X){
                 difference = Math.abs(x - this.X);
-                for(int i = x+1;x<X;i++){
-                    if(b[y][i] instanceof Space == false){
+                for(int i = 1;i<difference;i++){
+                    if(b[y][x+i] instanceof Space == false){
                         throw new RuntimeException("You cannot do this! Move again!");
                     }
                 }
