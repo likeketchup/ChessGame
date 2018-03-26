@@ -19,7 +19,37 @@ public class Bishop extends Piece
         boolean stepSideways= (Math.abs(x-X)==Math.abs(y-Y));
         if(!stepSideways)
         {
-            return false;
+            throw new RuntimeException("You cannot do this! Move again!");
+        }
+        int difference = Math.abs(x-X);
+        //right&up
+        if(y>Y && x>X){
+            for(int i = 1;i<difference;i++){
+                if(b[Y+i][X+i] instanceof Space == false){
+                    throw new RuntimeException("You cannot do this! Move again!");
+                }
+            }
+        }
+        else if(y>Y && x<X){
+            for(int i = 1;i<difference;i++){
+                if(b[Y+i][X-i] instanceof Space == false){
+                    throw new RuntimeException("You cannot do this! Move again!");
+                }
+            }
+        }
+        else if(y<Y && x<X){
+            for(int i = 1;i<difference;i++){
+                if(b[Y-i][X-i] instanceof Space == false){
+                    throw new RuntimeException("You cannot do this! Move again!");
+                }
+            }
+        }
+        else if(y<Y && x>X){
+            for(int i = 1;i<difference;i++){
+                if(b[Y-i][X+i] instanceof Space == false){
+                    throw new RuntimeException("You cannot do this! Move again!");
+                }
+            }
         }
         this.X=x;
         this.Y=y;
