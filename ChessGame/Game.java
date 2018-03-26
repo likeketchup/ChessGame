@@ -2,13 +2,12 @@ import java.util.Scanner;
 public class Game
 {
 
-    public static void main(String[] args){
+    public static void main(){
 
-        try {  } catch(RuntimeException e){throw e; }
+        //try {  } catch(RuntimeException e){throw e; }
 
         Scanner scn=new Scanner(System.in);
         String continuee="";
-
         while(!continuee.equals("yy"))
         {
             System.out.println("Do you want to start a game? (y/n)"+"["+"whitePlayer"+"]");
@@ -16,8 +15,9 @@ public class Game
             System.out.println("Do you want to start a game? (y/n)"+"["+"blackPlayer"+"]");
             continuee+=scn.nextLine();
         }
-
+        
         Board b=Board.factory();
+        
         System.out.println("Enter the name of User 1（white）:");
         String firstName=scn.nextLine();
         Player whitePlayer=Player.factory(firstName,"white",b);
@@ -25,36 +25,51 @@ public class Game
         String secondName=scn.nextLine();
         Player blackPlayer=Player.factory(secondName,"black",b);
         System.out.println("\n");
-
+    
         System.out.println(b);
 
         while(continuee.equals("yy"))
         {
-
-
-            System.out.println("White play");
-            System.out.print("Move piece from ");String previous=scn.next();System.out.print(" to ");
-            String later=scn.next();
-            whitePlayer.movePiece(previous, later);
-            System.out.println(b);
-
-            System.out.println("Black play");
-            System.out.print("Move piece from ");previous=scn.next();System.out.print(" to ");
-            later=scn.next();
-            blackPlayer.movePiece(previous, later);
-            System.out.println(b);
-
-            System.out.println("Do you want to exit?(y/n)");
-            String exit=scn.next();
-            if(exit.equals("y"))
-            {
+            
+            String previous = "";
+            String later = "";
+            while(true){
+                try{
+                    System.out.println("White play");
+                    System.out.print("Move piece from:");
+                    previous=scn.next();
+                    System.out.print(" to ");
+                    later=scn.next();
+                    whitePlayer.movePiece(previous, later);
+                }
+                catch(RuntimeException e){
+                    System.out.println(e);
+                    continue;
+                }
                 break;
             }
+            System.out.println(b);
+            
+            while(true){
+                try{
+                    System.out.println("Black play");
+                    System.out.print("Move piece from:");
+                    previous=scn.next();
+                    System.out.print(" to ");
+                    later=scn.next();
+                    blackPlayer.movePiece(previous, later);
+                }
+                catch(RuntimeException e){
+                    System.out.println(e);
+                    continue;
+                }
+                break;
+            }
+            System.out.println(b);
         }
-
-
+        
         System.out.println("game over");
 
-
     }
+    
 }
