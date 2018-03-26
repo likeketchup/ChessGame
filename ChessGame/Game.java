@@ -4,6 +4,8 @@ public class Game
 
     public static void main(String[] args){
 
+        try {  } catch(RuntimeException e){throw e; }
+
         Scanner scn=new Scanner(System.in);
         String continuee="";
 
@@ -44,7 +46,7 @@ public class Game
 
             System.out.println("Do you want to exit?(y/n)");
             String exit=scn.next();
-            if(exit.equals("n"))
+            if(exit.equals("y"))
             {
                 break;
             }
