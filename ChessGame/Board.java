@@ -70,30 +70,6 @@ public class Board
             throw new RuntimeException("you cannot eat the piece in the same side!");
             
         }//prevent player eat the same color piece.
-        if(pieces[y1][x1] instanceof Pawn){
-          boolean isBlack = true;
-          int dx = Math.abs(y1-y2);
-          int dy = Math.abs(x1-x2);
-          if(pieces[y1][x1].color == "W") isBlack = false;
-          int dir = 1;
-          if(isBlack == false) dir = -1;
-          boolean front=true, OBleft=true ,OBright=true, fisrtTime = false;
-          if((pieces[y1+dir*2][x1] instanceof Space)&&pieces[y1][x1].hasMove==false) fisrtTime = true;
-          if(!(pieces[y1+dir][x1] instanceof Space))front = false;
-          if (pieces[y1+dir][x1+dir] instanceof Space) OBright = false;
-          if (pieces[y1-dir][x1+dir] instanceof Space) OBleft = false;
-          if(((y2==y1+dir&&x2==x1)&&front == true)||((y2==y1+dir&&x2==x1+dir)&&OBright == true)||((y2==y1+dir&&x2==x1+dir)&&OBleft == true)||(y2==y1+dir*2&&x2==x1&&fisrtTime==true&&front==true)){
-            pieces[y2][x2]=pieces[y1][x1];
-            pieces[y1][x1].move(y2,x2,this.pieces);
-            pieces[y1][x1]= new Space();
-            System.out.println("Move Success!");
-          }
-          else {
-              throw new RuntimeException("wrong");
-              //System.out.println(front);
-          }
-          return;
-        }
         if(pieces[y1][x1].move(y2,x2, this.pieces)){
             pieces[y2][x2]=pieces[y1][x1];
             pieces[y1][x1]= new Space();

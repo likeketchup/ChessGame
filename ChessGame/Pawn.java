@@ -17,10 +17,26 @@ public class Pawn extends Piece
     }
     public boolean move(int y, int x, Piece[][] b)
     {
-        hasMove = true;
-        this.X = x;
-        this.Y = y;
-        return true;
+        boolean move = false;
+        int dy = Math.abs(y-Y);
+        int dx = Math.abs(x-X);
+        int dir = 1;
+        if(this.color.equals("W")) dir = -1;
+        boolean front=true, OBleft=true ,OBright=true, fisrtTime = false;
+        if((b[Y+dir*2][X] instanceof Space)&&!hasMove) fisrtTime = true;
+        if(!(b[Y+dir][X] instanceof Space))front = false;
+        if((dir==-1 && X!=0)||(dir==1&&X!=7))
+            if (b[Y+dir][X+dir] instanceof Space) OBright = false;
+        if((dir==1 && X!=7)||(dir==-1&&X!=0))
+            if (b[Y-dir][X+dir] instanceof Space) OBleft = false;
+        if(((y==Y+dir&&x==X)&&front)||((y==Y+dir&&x==X+dir)&&OBright||((y==Y+dir&&x==X+dir)&&OBleft)||(y==Y+dir*2&&x==X&&fisrtTime&&front))){
+            this.X = x;
+            this.Y = y;
+            System.out.println("Move Success!");
+            return true;
+        }
+
+        return false;
     }
     public String toString(){
         return super.color+this.name.substring(0,2);

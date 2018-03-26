@@ -38,6 +38,7 @@ public class Player
     }
     //please notice that the first section of the coordinate in our project is Y!
     public int[] translator(String p){
+        if(p.charAt(0)<65||p.charAt(0)>72||p.charAt(1)<49||p.charAt(1)>56) throw new RuntimeException("Input illegal!");
         int[] coordinate = new int[2];
         coordinate[0] = Math.abs(Integer.parseInt(p.substring(1,2))-1);//x
         coordinate[1] = ((int)p.charAt(0))-65;//y
