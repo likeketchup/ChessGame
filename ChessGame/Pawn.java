@@ -32,11 +32,11 @@ public class Pawn extends Piece
         if(((y==Y+dir&&x==X)&&front)||((y==Y+dir&&x==X+dir)&&OBright||((y==Y+dir&&x==X+dir)&&OBleft)||(y==Y+dir*2&&x==X&&fisrtTime&&front))){
             this.X = x;
             this.Y = y;
-            System.out.println("Move Success!");
+            //System.out.println("Move Success!");
             return true;
         }
+        throw new RuntimeException("You cannot do this! Move again!");
 
-        return false;
     }
     public String toString(){
         return super.color+this.name.substring(0,2);

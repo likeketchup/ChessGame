@@ -11,23 +11,31 @@ public class Player
         this.b = b;
         this.color=color;
     }
-    public void movePiece(String p1, String p2){
+    String getName(){
+        return name;
+    }
+    String getColor(){
+        return color;
+    }
+    public boolean movePiece(String p1, String p2){
 
 
 
         int[] P1 = translator(p1);
         int[] P2 = translator(p2);
         String c=b.getPieceColor(P1[0],P1[1]);
-        if(color.equals("white") && b.getPieceColor(P1[0],P1[1]).equals("W")){}
+        if(color.equals("White") && c.equals("W")){}
         else
         {
-            if(color.equals("black") && b.getPieceColor(P1[0],P1[1]).equals("B")){}
+            if(color.equals("Black") && c.equals("B")){}
             else{throw new RuntimeException("this operation is illegal!");}
         }
+        boolean judge = b.movePiece(P1[0],P1[1],P2[0],P2[1]);
 
-
-
-        b.movePiece(P1[0],P1[1],P2[0],P2[1]);
+        if(judge){
+            return true;
+        }
+        return false;
     }
     public static Player factory(String name, String color, Board b){
         count++;

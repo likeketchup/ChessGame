@@ -61,7 +61,7 @@ public class Board
         }  
         return b;
     }
-    public void movePiece(int y1, int x1, int y2,int x2){
+    public boolean movePiece(int y1, int x1, int y2,int x2){
         if(pieces[y1][x1] instanceof Space){
             throw new RuntimeException("there is not have any piece in your appointed coordinate.");
             
@@ -71,12 +71,14 @@ public class Board
             
         }//prevent player eat the same color piece.
         if(pieces[y1][x1].move(y2,x2, this.pieces)){
+            if(pieces[y2][x2] instanceof King) return true;
             pieces[y2][x2]=pieces[y1][x1];
+
             pieces[y1][x1]= new Space();
-            System.out.println("Move Success!");
-            return ;
+            //System.out.println("Move Success!");
+
         }
-        if((pieces[x1][y1] instanceof King)&&(pieces[x1][y1].move(x1-2,y2, this.pieces))
+        /*if((pieces[x1][y1] instanceof King)&&(pieces[x1][y1].move(x1-2,y2, this.pieces))
                 &&(pieces[x1][1] instanceof Space)
                 &&(pieces[x1][2] instanceof Space)
                 &&(pieces[x1][3] instanceof Space)
@@ -84,7 +86,7 @@ public class Board
             //pieces[x1][0].setXY(x1,3);
             pieces[x1][3]=pieces[x1][0];
             pieces[x1][0]=new Space();
-            System.out.println("Move Success");
+            //System.out.println("Move Success");
         }
         if((pieces[x2][y2]==pieces[x1+2][y2])&&(pieces[x1][y1].move(x1+2,y2, this.pieces))
                 &&(pieces[x1][5] instanceof Space)
@@ -93,9 +95,9 @@ public class Board
             //pieces[x1][7].setXY(x1,5);
             pieces[x1][7]=pieces[x1][5];
             pieces[x1][7]=new Space();
-            System.out.println("Move Success");
-        }
-
+            //System.out.println("Move Success");
+        }*/
+        return false;
     }
 
     public Piece getPiece(int x,int y){
