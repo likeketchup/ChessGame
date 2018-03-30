@@ -1,4 +1,3 @@
-import java.util.*;
 public class Board
 {
     // instance variables - replace the example below with your own
@@ -73,39 +72,23 @@ public class Board
         if(pieces[y1][x1].move(y2,x2, this.pieces)){
             if(pieces[y2][x2] instanceof King) return true;
             pieces[y2][x2]=pieces[y1][x1];
-
             pieces[y1][x1]= new Space();
-            //System.out.println("Move Success!");
-
         }
-        /*if((pieces[x1][y1] instanceof King)&&(pieces[x1][y1].move(x1-2,y2, this.pieces))
-                &&(pieces[x1][1] instanceof Space)
-                &&(pieces[x1][2] instanceof Space)
-                &&(pieces[x1][3] instanceof Space)
-                ){
-            //pieces[x1][0].setXY(x1,3);
-            pieces[x1][3]=pieces[x1][0];
-            pieces[x1][0]=new Space();
-            //System.out.println("Move Success");
-        }
-        if((pieces[x2][y2]==pieces[x1+2][y2])&&(pieces[x1][y1].move(x1+2,y2, this.pieces))
-                &&(pieces[x1][5] instanceof Space)
-                &&(pieces[x1][6] instanceof Space)
-                ){
-            //pieces[x1][7].setXY(x1,5);
-            pieces[x1][7]=pieces[x1][5];
-            pieces[x1][7]=new Space();
-            //System.out.println("Move Success");
-        }*/
         return false;
     }
 
     public Piece getPiece(int x,int y){
         return pieces[x][y];
     }
+    public void changePiece(int y, int x, String pieceType, String color){
+        String c = "B";
+        if(color.equals("White")) c = "W";
 
-
-
+        if (pieceType.equals("Bishop")) this.pieces[y][x] = Bishop.factory(c,x,y);
+        if (pieceType.equals("Rook")) this.pieces[y][x] = Rook.factory(c,x,y);
+        if (pieceType.equals("Queen")) this.pieces[y][x] = Queen.factory(c,x,y);
+        if (pieceType.equals("Knight")) this.pieces[y][x] = Knight.factory(c,x,y);
+    }
     public String getPieceColor(int y, int x)
     {
         return pieces[y][x].color;

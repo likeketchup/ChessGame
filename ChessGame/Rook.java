@@ -7,7 +7,7 @@ public class Rook extends Piece
         super(color,X,Y);
     }
     static public Rook factory(String color,int X, int Y) {
-        count++;
+        //count++;
         if (count > 4) {
             throw new Error("You could only initialize 4.");
         }
@@ -69,6 +69,6 @@ public class Rook extends Piece
         return hasMove;
     }
     public String toString(){
-        return super.color+this.name.substring(0,2);
+        return color+this.name.substring(0,2);
     }
 }

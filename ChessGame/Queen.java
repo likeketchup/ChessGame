@@ -8,7 +8,7 @@ public class Queen extends Piece
         super(color,X,Y);
     }
     static public Queen factory(String color,int X, int Y){
-        count++;
+        //count++;
         if(count>2){
             throw new Error("You could only initialize 2 Queen.");
         }

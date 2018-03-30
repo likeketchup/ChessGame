@@ -7,7 +7,7 @@ public class Knight extends Piece
         super(color,Y,X);
     }
     static public Knight factory(String color,int X, int Y){
-        count++;
+        //count++;
         if(count>4){
             throw new Error("You could only initialize 4 Knights.");
         }

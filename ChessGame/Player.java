@@ -1,7 +1,6 @@
 
 public class Player
 {
-    //the first
     static int count = 0;
     private String name;
     private Board b;
@@ -17,10 +16,10 @@ public class Player
     String getColor(){
         return color;
     }
+    Board getBoard(){
+        return b;
+    }
     public boolean movePiece(String p1, String p2){
-
-
-
         int[] P1 = translator(p1);
         int[] P2 = translator(p2);
         String c=b.getPieceColor(P1[0],P1[1]);

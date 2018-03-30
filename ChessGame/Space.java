@@ -9,6 +9,6 @@ public class Space extends Piece
     	return  true;
     }
     public String toString(){
-        return "   ";
+        return "[ ]";
     }
 }

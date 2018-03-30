@@ -3,9 +3,6 @@ public class Game
 {
     static Scanner scn=new Scanner(System.in);
     public static void main(String[] args){
-
-        //try {  } catch(RuntimeException e){throw e; }
-        String continuee="";
         System.out.println("This is a Chess Game develop by team SuperChess");
         System.out.println("Main Developer: Toma Chen, Eason Lu, Wendy Tan, Fiona Liu");
         System.out.println("Please enter 'Start' to start the chess game");
@@ -54,6 +51,19 @@ public class Game
                     System.out.println(p.getName()+" Win. Game End");
                     return true;
                 }
+                int pawnChange[] = checkPawn(p.getBoard(),p.getColor());
+                if(pawnChange[0]!=-1){
+                    String nPieces = "";
+                    System.out.println("your Pawn can evolve to other pieces now!");
+                    System.out.println("please enter the pieces you want");
+                    System.out.println("(Rook/Knight/Bishop/Queen/)");
+                    while(true){
+                        nPieces = scn.nextLine();
+                        if (nPieces.equals("Bishop")||nPieces.equals("Queen")||nPieces.equals("Knight")||nPieces.equals("Rook")) break;
+                    }
+                    p.getBoard().changePiece(pawnChange[0],pawnChange[1],nPieces,p.getColor());
+                    System.out.println("your pawn has been changed!");
+                }
             }
             catch(RuntimeException e){
                 //System.out.println(e);
@@ -62,8 +72,21 @@ public class Game
             }
             break;
         }
-        System.out.println("-------------------------------");
+        System.out.println("---------------------------------------");
         return false;
+    }
+    private static int[] checkPawn(Board b, String color){
+        int[] place = new int[2];
+        place[0]=place[1]=-1;
+        int dir = 0;
+        if(color.equals("Black")) dir = 7;
+        for(int i=0; i<=7;i++){
+            if(b.pieces[dir][i] instanceof Pawn){
+                place[0] = dir;
+                place[1] = i;
+            }
+        }
+        return place;
     }
     
 }
