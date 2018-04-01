@@ -25,6 +25,7 @@ public class Pawn extends Piece
         boolean front=true, OBleft=true ,OBright=true, fisrtTime = false;
         if(!hasMove)
             if(b[Y+dir*2][X] instanceof Space) fisrtTime = true;
+        if((b[Y+dir*2][X] instanceof Space)&&hasMove) fisrtTime = true;
         if(!(b[Y+dir][X] instanceof Space))front = false;
         if((dir==-1 && X!=7)||(dir==1&&X!=0))
             if (b[Y+dir][X-dir] instanceof Space) OBright = false;

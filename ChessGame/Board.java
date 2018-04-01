@@ -60,23 +60,72 @@ public class Board
         }  
         return b;
     }
-    public boolean movePiece(int y1, int x1, int y2,int x2){
-        if(pieces[y1][x1] instanceof Space){
+    public boolean movePiece(int y1, int x1, int y2,int x2) {
+        if (pieces[y1][x1] instanceof Space) {
             throw new RuntimeException("there is not have any piece in your appointed coordinate.");
-            
+
         }//prevent player to move the space.
-        if(pieces[y1][x1].color==pieces[y2][x2].color){
+        if (pieces[y1][x1].color == pieces[y2][x2].color) {
             throw new RuntimeException("you cannot eat the piece in the same side!");
-            
+
         }//prevent player eat the same color piece.
-        if(pieces[y1][x1].move(y2,x2, this.pieces)){
-            if(pieces[y2][x2] instanceof King) return true;
-            pieces[y2][x2]=pieces[y1][x1];
-            pieces[y1][x1]= new Space();
+        if (pieces[y1][x1].move(y2, x2, this.pieces)) {
+            if (pieces[y2][x2] instanceof King) return true;
+            if ((pieces[y1][x1] instanceof King) && (Math.abs(x2 - x1) == 2)) {
+                b.castling(y1, x1, y2, x2);
+                return false;
+            }
+            pieces[y2][x2] = pieces[y1][x1];
+            pieces[y1][x1] = new Space();
         }
+
         return false;
     }
 
+    public void castling(int y1, int x1, int y2, int x2) {
+        boolean kingLeft = x2 == x1 - 2;
+        int max = 2;
+        int count = 0;
+        if (b.getPieceColor(y1, x1).equals("W")) {
+            System.out.println("www");
+        }
+        int dirR = -1;
+        int rookY = 7;
+        int dirK = 1;
+        if (kingLeft) {
+            dirK = -1;
+            dirR = 1;
+            max = 3;
+            rookY = 0;
+        }
+
+        for (int i = 1; i < max + 1; i++) {
+            if (pieces[y1][4 + dirK * i] instanceof Space) {
+                count++;
+                System.out.println(count);
+            }
+
+        }
+
+        if (count == max) {
+            if (pieces[y1][rookY] instanceof Rook && pieces[y1][rookY].getHasMove()) {
+                pieces[y2][x2] = pieces[y1][x1];
+                pieces[y1][x1] = new Space();
+                pieces[y1][x1].setXY(y2, x2);//king move
+
+                pieces[y1][rookY+dirR*max] = pieces[y1][rookY];
+                pieces[y1][rookY] = new Space();//rook move
+                pieces[y1][rookY].setXY(y1, rookY+dirR*max);
+            }
+        }
+    }
+
+
+
+        public String getPieceColor ( int y, int x)
+        {
+            return pieces[y][x].color;
+        }
     public Piece getPiece(int x,int y){
         return pieces[x][y];
     }
@@ -89,9 +138,5 @@ public class Board
         if (pieceType.equals("Queen")) this.pieces[y][x] = Queen.factory(c,x,y);
         if (pieceType.equals("Knight")) this.pieces[y][x] = Knight.factory(c,x,y);
     }
-    public String getPieceColor(int y, int x)
-    {
-        return pieces[y][x].color;
 
     }
-}

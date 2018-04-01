@@ -50,7 +50,7 @@ public class Rook extends Piece
                     }
                 }
             }
-            hasMove = true;
+            hasMove = false;
             this.X = x;
             this.Y = y;
             return true;
@@ -59,14 +59,6 @@ public class Rook extends Piece
             throw new RuntimeException("You cannot do this! Move again!");
         }
 
-    }
-    public boolean hasMove(){
-        if(hasMove==false){return true;}
-        return false;
-    }
-    public boolean getHasMove(boolean hasMove){
-        this.hasMove=hasMove;
-        return hasMove;
     }
     public String toString(){
         return color+this.name.substring(0,2);

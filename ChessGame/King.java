@@ -16,12 +16,18 @@ public class King extends Piece
     }
     public boolean move(int y, int x,Piece[][] b)
     {
-        if(Math.abs(x-X)>1||Math.abs(y-Y)>1){
-            throw new RuntimeException("You cannot do this! Move again!");
+
+        if((Math.abs(x-X)==2&&y==Y)&&(hasMove)){
+            hasMove=false;
+            return true;
         }
-        this.X=x;
-        this.Y=y;
-        return true;
+        else if((Math.abs(x-X)==1&&Y==y)||(Math.abs(y-Y)==1&&X==x)||(Math.abs(y-Y)==1&&Math.abs(x-X)==1)){
+            this.X=x;
+            this.Y=y;
+            hasMove=false;
+            return true;
+        }
+        throw new RuntimeException("You cannot do this! Move again!");
     }
     public String toString(){
         return super.color+this.name.substring(0,2);

@@ -1,8 +1,7 @@
 abstract public class Piece
 {   
     String color;
-    String name;
-    boolean hasMove = false;
+    boolean hasMove = true;
     int X;//coordinate
     int Y;//coordinate
     Piece(){}
@@ -10,6 +9,13 @@ abstract public class Piece
         this.color = color;
         this.X = X;
         this.Y = Y;
+    }
+    public void setXY(int y,int x){
+        this.X=x;
+        this.Y=y;
+    }
+    public boolean getHasMove(){
+        return hasMove;
     }
     abstract public boolean move(int x, int y, Piece[][] b); //change the coordinate and return the result of the movement.
     public String getXY(){//get the coordinate
