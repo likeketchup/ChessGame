@@ -19,47 +19,10 @@ public class Rook extends Piece
             checkStraightBlock(y,x,b);
             hasMove = true;
             //Y block
-            if(b[y][2].getCast()||b[y][6].getCast()) {
-                castling = true;
-            }
-             else{   if (y > this.Y) {
-                    difference = Math.abs(y - this.Y);
-                    for (int i = 1; i < difference; i++) {
-                        if (b[Y + i][x] instanceof Space == false) {
-                            throw new RuntimeException("You cannot do this! Move again!");
-                        }
-                    }
-                } else if (y < this.Y) {
-                    difference = Math.abs(y - this.Y);
-                    for (int i = 1; i < difference; i++) {
-                        if (b[y + i][x] instanceof Space == false) {
-                            throw new RuntimeException("You cannot do this! Move again!");
-                        }
-                    }
-                }
-                // X block
-                if (x > this.X) {
-                    difference = Math.abs(x - this.X);
-                    for (int i = 1; i < difference; i++) {
-                        if (b[y][X + i] instanceof Space == false) {
-                            throw new RuntimeException("You cannot do this! Move again!");
-                        }
-                    }
-                } else if (x < this.X) {
-                    difference = Math.abs(x - this.X);
-                    for (int i = 1; i < difference; i++) {
-                        if (b[y][x + i] instanceof Space == false) {
-                            throw new RuntimeException("You cannot do this! Move again!");
-                        }
-                    }
-                }
-            }
-            hasMove = false;
             this.X = x;
             this.Y = y;
             return true;
         }
-
         else{
             throw new RuntimeException("You cannot do this! Move again!");
         }
@@ -74,18 +37,22 @@ public class Rook extends Piece
         if(y>Y){
             directY = 1;
             directX = 0;
+            difference = Math.abs(y-Y);
         }
         else if(y<Y){
             directY = -1;
             directX = 0;
+            difference = Math.abs(y-Y);
         }
         else if(x>X){
             directY = 0;
             directX = 1;
+            difference = Math.abs(x-X);
         }
         else if(x<X){
             directY = 0;
             directX = -1;
+            difference = Math.abs(x-X);
         }
         for(int i = 1;i<difference;i++){
              if(b[Y+i*directY][X+i*directX] instanceof Space == false){

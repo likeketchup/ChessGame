@@ -1,8 +1,8 @@
 
 public class Queen extends Piece
 {   
-    private static int count = 0;
-    private String name = "Queen";
+    static int count = 0;
+    String name = "Queen";
     private Queen(String color,int X,int Y)
     {
         super(color,X,Y);
@@ -46,18 +46,22 @@ public class Queen extends Piece
         if(y>Y){
             directY = 1;
             directX = 0;
+            difference = Math.abs(y-Y);
         }
         else if(y<Y){
             directY = -1;
             directX = 0;
+            difference = Math.abs(y-Y);
         }
         else if(x>X){
             directY = 0;
             directX = 1;
+            difference = Math.abs(x-X);
         }
         else if(x<X){
             directY = 0;
             directX = -1;
+            difference = Math.abs(x-X);
         }
         for(int i = 1;i<difference;i++){
              if(b[Y+i*directY][X+i*directX] instanceof Space == false){
