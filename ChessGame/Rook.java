@@ -1,6 +1,6 @@
 public class Rook extends Piece
 {
-    static private int count = 0;
+    static int count = 0;
     String name = "Rook";
     private Rook(String color,int X, int Y)
     {
@@ -16,6 +16,10 @@ public class Rook extends Piece
     public boolean move(int y, int x, Piece[][] b){
         int difference = 0;
         if((X!=x && Y==y)||(X==x && Y!=y)){
+<<<<<<< HEAD
+            checkStraightBlock(y,x,b);
+            hasMove = true;
+=======
             //Y block
             if(y>this.Y){
                 difference = Math.abs(y - this.Y);
@@ -51,6 +55,7 @@ public class Rook extends Piece
                 }
             }
             hasMove = false;
+>>>>>>> b69af93d3b8110134a86c703648330a7896559ee
             this.X = x;
             this.Y = y;
             return true;
@@ -60,6 +65,45 @@ public class Rook extends Piece
         }
 
     }
+<<<<<<< HEAD
+    public void checkStraightBlock(int m,int n, Piece[][] b){
+        int y = m;
+        int x = n;
+        int directY = 1;
+        int directX = 1;
+        int difference = 0;
+        if(y>Y){
+            directY = 1;
+            directX = 0;
+        }
+        else if(y<Y){
+            directY = -1;
+            directX = 0;
+        }
+        else if(x>X){
+            directY = 0;
+            directX = 1;
+        }
+        else if(x<X){
+            directY = 0;
+            directX = -1;
+        }
+        for(int i = 1;i<difference;i++){
+             if(b[Y+i*directY][X+i*directX] instanceof Space == false){
+                 throw new RuntimeException("You cannot do this! Move again!");
+             }
+        }
+    }
+    public boolean hasMove(){
+        if(hasMove==false){return true;}
+        return false;
+    }
+    public boolean getHasMove(boolean hasMove){
+        this.hasMove=hasMove;
+        return hasMove;
+    }
+=======
+>>>>>>> b69af93d3b8110134a86c703648330a7896559ee
     public String toString(){
         return color+this.name.substring(0,2);
     }

@@ -21,41 +21,36 @@ public class Bishop extends Piece
         {
             throw new RuntimeException("You cannot do this! Move again!");
         }
-        int difference = Math.abs(x-X);
-        //right&up
-        if(y>Y && x>X){
-            for(int i = 1;i<difference;i++){
-                if(b[Y+i][X+i] instanceof Space == false){
-                    throw new RuntimeException("You cannot do this! Move again!");
-                }
-            }
-        }
-        else if(y>Y && x<X){
-            for(int i = 1;i<difference;i++){
-                if(b[Y+i][X-i] instanceof Space == false){
-                    throw new RuntimeException("You cannot do this! Move again!");
-                }
-            }
-        }
-        else if(y<Y && x<X){
-            for(int i = 1;i<difference;i++){
-                if(b[Y-i][X-i] instanceof Space == false){
-                    throw new RuntimeException("You cannot do this! Move again!");
-                }
-            }
-        }
-        else if(y<Y && x>X){
-            for(int i = 1;i<difference;i++){
-                if(b[Y-i][X+i] instanceof Space == false){
-                    throw new RuntimeException("You cannot do this! Move again!");
-                }
-            }
-        }
+        checkSideBlock(y,x,b);
         this.X=x;
         this.Y=y;
         return true;
     }
     public String toString(){
         return super.color+this.name.substring(0,2);
+    }
+    private void checkSideBlock(int m, int n, Piece[][] b){
+        int y =m;
+        int x =n;
+        int directY = 1;
+        int directX = 1;
+        int difference = Math.abs(x-X);
+        if(y>Y && x<X){
+            directY = 1;
+            directX = -1;
+        }
+        else if(y<Y && x<X){
+            directY = -1;
+            directX = -1;
+        }
+        else if(y<Y && x>X){
+            directY = -1;
+            directX = 1;
+        }
+        for(int i = 1;i<difference;i++){
+            if(b[Y+i*directY][X+i*directX] instanceof Space == false){
+                throw new RuntimeException("You cannot do this! Move again!");
+            }
+        }
     }
 }

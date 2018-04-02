@@ -1,7 +1,7 @@
 
 public class Queen extends Piece
 {   
-    static private int count = 0;
+    static int count = 0;
     String name = "Queen";
     private Queen(String color,int X,int Y)
     {
@@ -26,84 +26,70 @@ public class Queen extends Piece
            int difference = 0;
            //rook
            if(stepStraightUpDownRightLeft){
-               if((X!=x && Y==y)||(X==x && Y!=y)){
-                   //Y block
-                   if(y>this.Y){
-                       difference = Math.abs(y - this.Y);
-                       for(int i = 1;i<difference;i++){
-                           if(b[Y+i][x] instanceof Space == false){
-                               throw new RuntimeException("You cannot do this! Move again!");
-                           }
-                       }
-                   }
-                   else if(y< this.Y){
-                       difference = Math.abs(y - this.Y);
-                       for(int i = 1;i<difference;i++){
-                           if(b[y+i][x] instanceof Space == false){
-                               throw new RuntimeException("You cannot do this! Move again!");
-                           }
-                       }
-                   }
-                   // X block
-                   if(x>this.X){
-                       difference = Math.abs(x - this.X);
-                       for(int i = 1;i<difference;i++){
-                           if(b[y][X+i] instanceof Space == false){
-                               throw new RuntimeException("You cannot do this! Move again!");
-                           }
-                       }
-                   }
-                   else if(x< this.X){
-                       difference = Math.abs(x - this.X);
-                       for(int i = 1;i<difference;i++){
-                           if(b[y][X+i] instanceof Space == false){
-                               throw new RuntimeException("You cannot do this! Move again!");
-                           }
-                       }
-                   }
-               }
+               checkStraightBlock(y,x,b);
            }
            //bishop
            else if(stepSideways){
-               //bishop
-               difference = Math.abs(x-X);
-               //right&up
-               if(y>Y && x>X){
-                   for(int i = 1;i<difference;i++){
-                       if(b[Y+i][X+i] instanceof Space == false){
-                           throw new RuntimeException("You cannot do this! Move again!");
-                       }
-                   }
-               }
-               //left&up
-               else if(y>Y && x<X){
-                   for(int i = 1;i<difference;i++){
-                       if(b[Y+i][X-i] instanceof Space == false){
-                           throw new RuntimeException("You cannot do this! Move again!");
-                       }
-                   }
-               }
-               //left&down
-               else if(y<Y && x<X){
-                   for(int i = 1;i<difference;i++){
-                       if(b[Y-i][X-i] instanceof Space == false){
-                           throw new RuntimeException("You cannot do this! Move again!");
-                       }
-                   }
-               }
-               //right&down
-               else if(y<Y && x>X){
-                   for(int i = 1;i<difference;i++){
-                       if(b[Y-i][X+i] instanceof Space == false){
-                           throw new RuntimeException("You cannot do this! Move again!");
-                       }
-                   }
-               }
+               checkSideBlock(y,x,b);
            }
-            this.X = x;
-            this.Y = y;
-            return true;
+           this.X = x;
+           this.Y = y;
+           return true;
         }
+        
+    public void checkStraightBlock(int m,int n, Piece[][] b){
+        int y = m;
+        int x = n;
+        int directY = 1;
+        int directX = 1;
+        int difference = 0;
+        if(y>Y){
+            directY = 1;
+            directX = 0;
+        }
+        else if(y<Y){
+            directY = -1;
+            directX = 0;
+        }
+        else if(x>X){
+            directY = 0;
+            directX = 1;
+        }
+        else if(x<X){
+            directY = 0;
+            directX = -1;
+        }
+        for(int i = 1;i<difference;i++){
+             if(b[Y+i*directY][X+i*directX] instanceof Space == false){
+                 throw new RuntimeException("You cannot do this! Move again!");
+             }
+        }
+    }
+    
+    private void checkSideBlock(int m, int n, Piece[][] b){
+        int y =m;
+        int x =n;
+        int directY = 1;
+        int directX = 1;
+        int difference = Math.abs(x-X);
+        if(y>Y && x<X){
+            directY = 1;
+            directX = -1;
+        }
+        else if(y<Y && x<X){
+            directY = -1;
+            directX = -1;
+        }
+        else if(y<Y && x>X){
+            directY = -1;
+            directX = 1;
+        }
+        for(int i = 1;i<difference;i++){
+            if(b[Y+i*directY][X+i*directX] instanceof Space == false){
+                throw new RuntimeException("You cannot do this! Move again!");
+            }
+        }
+    }
     
     public String toString(){
         return super.color+this.name.substring(0,2);
