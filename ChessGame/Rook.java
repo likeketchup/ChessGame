@@ -1,6 +1,6 @@
 public class Rook extends Piece
 {
-    static int count = 0;
+    static private int count = 0;
     String name = "Rook";
     private Rook(String color,int X, int Y)
     {

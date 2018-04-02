@@ -1,9 +1,8 @@
 public class Board
 {
     // instance variables - replace the example below with your own
-    static int count = 0;
+    static private int count = 0;
     Piece[][] pieces = new Piece[8][8];
-    private int x;
     private static final Board b = new Board();
     private Board(){
         this.pieces[0][0] = Rook.factory("B",0,0);
@@ -39,7 +38,7 @@ public class Board
         return printBoard();
     }
     private String printBoard(){
-        String board = new String();
+        String board = "";
         for(int i = 0;i<8;i++){
             board = board+(i+1);
             for(int j = 0;j<8;j++){
@@ -65,7 +64,7 @@ public class Board
             throw new RuntimeException("there is not have any piece in your appointed coordinate.");
 
         }//prevent player to move the space.
-        if (pieces[y1][x1].color == pieces[y2][x2].color) {
+        if (pieces[y1][x1].color.equals(pieces[y2][x2].color)) {
             throw new RuntimeException("you cannot eat the piece in the same side!");
 
         }//prevent player eat the same color piece.
@@ -119,13 +118,9 @@ public class Board
             }
         }
     }
-
-
-
-        public String getPieceColor ( int y, int x)
-        {
-            return pieces[y][x].color;
-        }
+    public String getPieceColor ( int y, int x) {
+        return pieces[y][x].color;
+    }
     public Piece getPiece(int x,int y){
         return pieces[x][y];
     }

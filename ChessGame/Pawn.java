@@ -17,9 +17,6 @@ public class Pawn extends Piece
     }
     public boolean move(int y, int x, Piece[][] b)
     {
-        boolean move = false;
-        int dy = Math.abs(y-Y);
-        int dx = Math.abs(x-X);
         int dir = 1;
         if(this.color.equals("W")) dir = -1;
         boolean front=true, OBleft=true ,OBright=true, fisrtTime = false;
