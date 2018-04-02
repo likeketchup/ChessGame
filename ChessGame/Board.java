@@ -1,7 +1,7 @@
 public class Board
 {
     // instance variables - replace the example below with your own
-    static int count = 0;
+    private static int count = 0;
     Piece[][] pieces = new Piece[8][8];
     private static final Board b = new Board();
     private Board(){
@@ -133,5 +133,4 @@ public class Board
         if (pieceType.equals("Queen")) this.pieces[y][x] = Queen.factory(c,x,y);
         if (pieceType.equals("Knight")) this.pieces[y][x] = Knight.factory(c,x,y);
     }
-
-    }
+}

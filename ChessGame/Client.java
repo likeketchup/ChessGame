@@ -15,7 +15,7 @@ public class Client
     public static void main(String[] args){
         Client ct = new Client();
         try{
-            ct.setBr("/Users/happy_family/IdeaProjects/ChessGame/TestFiles/Knight.txt");
+            ct.setBr("/Users/happy_family/IdeaProjects/ChessGame/TestFiles/Castling.txt");
         }
         catch (Exception e){
             System.out.println(e);
@@ -33,12 +33,14 @@ public class Client
                 }
                 catch (Exception e){
                     System.out.println(e);
+                    e.printStackTrace();
                 }
                 System.out.println(a);
             }
         }
         catch (Exception e){
             System.out.println(e);
+            e.getStackTrace();
         }
 
     }
