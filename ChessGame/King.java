@@ -18,6 +18,9 @@ public class King extends Piece
     {
 
         if((Math.abs(x-X)==2&&y==Y)&&(hasMove)){
+            this.X=x;
+            this.Y=y;
+            castling = true;
             hasMove=false;
             return true;
         }

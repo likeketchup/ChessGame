@@ -1,7 +1,7 @@
 public class Board
 {
     // instance variables - replace the example below with your own
-    static private int count = 0;
+    static int count = 0;
     Piece[][] pieces = new Piece[8][8];
     private static final Board b = new Board();
     private Board(){
@@ -80,7 +80,6 @@ public class Board
 
         return false;
     }
-
     public void castling(int y1, int x1, int y2, int x2) {
         boolean kingLeft = x2 == x1 - 2;
         int max = 2;
@@ -101,20 +100,21 @@ public class Board
         for (int i = 1; i < max + 1; i++) {
             if (pieces[y1][4 + dirK * i] instanceof Space) {
                 count++;
-                System.out.println(count);
             }
-
         }
 
         if (count == max) {
             if (pieces[y1][rookY] instanceof Rook && pieces[y1][rookY].getHasMove()) {
-                pieces[y2][x2] = pieces[y1][x1];
-                pieces[y1][x1] = new Space();
-                pieces[y1][x1].setXY(y2, x2);//king move
 
-                pieces[y1][rookY+dirR*max] = pieces[y1][rookY];
-                pieces[y1][rookY] = new Space();//rook move
-                pieces[y1][rookY].setXY(y1, rookY+dirR*max);
+                pieces[y2][x2] = pieces[y1][x1];
+                pieces[y1][x1] = new Space();//king move
+                pieces[y1][x1].move(y2,x1,this.pieces);
+
+                pieces[y1][rookY+dirR*max]=pieces[y1][rookY];
+                pieces[y1][rookY]=new Space();
+                pieces[y1][rookY].move(y1,rookY+dirR*max,this.pieces);
+
+
             }
         }
     }

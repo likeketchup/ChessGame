@@ -2,6 +2,7 @@ abstract public class Piece
 {   
     String color;
     boolean hasMove = true;
+    boolean castling = false;
     int X;//coordinate
     int Y;//coordinate
     Piece(){}
@@ -10,10 +11,10 @@ abstract public class Piece
         this.X = X;
         this.Y = Y;
     }
-    public void setXY(int y,int x){
-        this.X=x;
-        this.Y=y;
+    public boolean getCast(){
+        return castling;
     }
+
     public boolean getHasMove(){
         return hasMove;
     }

@@ -16,56 +16,55 @@ public class Rook extends Piece
     public boolean move(int y, int x, Piece[][] b){
         int difference = 0;
         if((X!=x && Y==y)||(X==x && Y!=y)){
-<<<<<<< HEAD
             checkStraightBlock(y,x,b);
             hasMove = true;
-=======
             //Y block
-            if(y>this.Y){
-                difference = Math.abs(y - this.Y);
-                for(int i = 1;i<difference;i++){
-                    if(b[Y+i][x] instanceof Space == false){
-                        throw new RuntimeException("You cannot do this! Move again!");
+            if(b[y][2].getCast()||b[y][6].getCast()) {
+                castling = true;
+            }
+             else{   if (y > this.Y) {
+                    difference = Math.abs(y - this.Y);
+                    for (int i = 1; i < difference; i++) {
+                        if (b[Y + i][x] instanceof Space == false) {
+                            throw new RuntimeException("You cannot do this! Move again!");
+                        }
+                    }
+                } else if (y < this.Y) {
+                    difference = Math.abs(y - this.Y);
+                    for (int i = 1; i < difference; i++) {
+                        if (b[y + i][x] instanceof Space == false) {
+                            throw new RuntimeException("You cannot do this! Move again!");
+                        }
                     }
                 }
-            }
-            else if(y< this.Y){
-                difference = Math.abs(y - this.Y);
-                for(int i = 1;i<difference;i++){
-                    if(b[y+i][x] instanceof Space == false){
-                        throw new RuntimeException("You cannot do this! Move again!");
+                // X block
+                if (x > this.X) {
+                    difference = Math.abs(x - this.X);
+                    for (int i = 1; i < difference; i++) {
+                        if (b[y][X + i] instanceof Space == false) {
+                            throw new RuntimeException("You cannot do this! Move again!");
+                        }
                     }
-                }
-            }
-            // X block
-            if(x>this.X){
-                difference = Math.abs(x - this.X);
-                for(int i = 1;i<difference;i++){
-                    if(b[y][X+i] instanceof Space == false){
-                        throw new RuntimeException("You cannot do this! Move again!");
-                    }
-                }
-            }
-            else if(x< this.X){
-                difference = Math.abs(x - this.X);
-                for(int i = 1;i<difference;i++){
-                    if(b[y][x+i] instanceof Space == false){
-                        throw new RuntimeException("You cannot do this! Move again!");
+                } else if (x < this.X) {
+                    difference = Math.abs(x - this.X);
+                    for (int i = 1; i < difference; i++) {
+                        if (b[y][x + i] instanceof Space == false) {
+                            throw new RuntimeException("You cannot do this! Move again!");
+                        }
                     }
                 }
             }
             hasMove = false;
->>>>>>> b69af93d3b8110134a86c703648330a7896559ee
             this.X = x;
             this.Y = y;
             return true;
         }
+
         else{
             throw new RuntimeException("You cannot do this! Move again!");
         }
 
     }
-<<<<<<< HEAD
     public void checkStraightBlock(int m,int n, Piece[][] b){
         int y = m;
         int x = n;
@@ -102,8 +101,6 @@ public class Rook extends Piece
         this.hasMove=hasMove;
         return hasMove;
     }
-=======
->>>>>>> b69af93d3b8110134a86c703648330a7896559ee
     public String toString(){
         return color+this.name.substring(0,2);
     }
