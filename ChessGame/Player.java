@@ -47,8 +47,9 @@ public class Player
     public int[] translator(String p){
         if(p.charAt(0)<65||p.charAt(0)>72||p.charAt(1)<49||p.charAt(1)>56) throw new RuntimeException("Input illegal!");
         int[] coordinate = new int[2];
-        coordinate[0] = Math.abs(Integer.parseInt(p.substring(1,2))-1);//x
-        coordinate[1] = ((int)p.charAt(0))-65;//y
+        coordinate[0] = Math.abs(Integer.parseInt(p.substring(1,2))-1);//y
+        coordinate[0] = Math.abs(coordinate[0]-9);
+        coordinate[1] = ((int)p.charAt(0))-65;//x
         return coordinate;
     }
 
