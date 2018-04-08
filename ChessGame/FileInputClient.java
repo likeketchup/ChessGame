@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class FileInputClient {
     static Scanner scn=new Scanner(System.in);
-    static Client fileReader = new Client();
+    static Reader fileReader = new Reader();
     public static void main(String[] args){
         try{
             fileReader.setBr("/Users/happy_family/IdeaProjects/ChessGame/TestFiles/Test.txt");
