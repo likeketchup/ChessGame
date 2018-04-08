@@ -1,7 +1,7 @@
 
 public class Player
 {
-    static int count = 0;
+    private static int count = 0;
     private String name;
     private Board b;
     private String color;

@@ -84,9 +84,6 @@ public class Board
         boolean kingLeft = x2 == x1 - 2;
         int max = 2;
         int count = 0;
-        if (b.getPieceColor(y1, x1).equals("W")) {
-            System.out.println("www");
-        }
         int dirR = -1;
         int rookY = 7;
         int dirK = 1;
