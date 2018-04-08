@@ -15,6 +15,9 @@ public class Reader {
             br.mark(1024);
             br.read(buf,ini,1);
             if(buf[0]!=',')br.reset();
+            br.mark(1024);
+            br.read(buf,ini,1);
+            if(buf[0]!='\n')br.reset();
             br.read(buf,ini,2);
             result = String.valueOf(buf);
         }else {throw new Exception("Finish Reading");}
