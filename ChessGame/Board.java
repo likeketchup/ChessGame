@@ -1,9 +1,9 @@
 public class Board
 {
     // instance variables - replace the example below with your own
-    private static int count = 0;
-    Piece[][] pieces = new Piece[8][8];
-    private static final Board b = new Board();
+    static int count = 0;
+    private Piece[][] pieces = new Piece[8][8];
+    static final Board b = new Board();
     private Board(){
         this.pieces[0][0] = Rook.factory("B",0,0);
         this.pieces[0][1] = Knight.factory("B",0,1);
@@ -51,6 +51,9 @@ public class Board
     }
     static public Board getBoard(){
         return b;
+    }
+    public Piece[][] getPieceBoard(){
+        return pieces;
     }
     static public Board factory(){
         count++;

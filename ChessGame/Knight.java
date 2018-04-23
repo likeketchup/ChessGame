@@ -1,7 +1,7 @@
 public class Knight extends Piece
 {
     static int count = 0;
-    String name = "Knight";
+    private String name = "Knight";
     private Knight(String color,int Y, int X)
     {
         super(color,Y,X);

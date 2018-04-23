@@ -1,7 +1,7 @@
 public class Rook extends Piece
 {
     static int count = 0;
-    String name = "Rook";
+    private String name = "Rook";
     private Rook(String color,int X, int Y)
     {
         super(color,X,Y);

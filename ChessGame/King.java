@@ -2,7 +2,7 @@
 public class King extends Piece
 {
     static int count = 0;
-    String name = "King";
+    private String name = "King";
     private King(String color,int X, int Y)
     {
         super(color,X,Y);
