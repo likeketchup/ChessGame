@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class FileInputClient {
     static Scanner scn=new Scanner(System.in);
     static Reader fileReader = new Reader();
-    public static void main(String[] args){
+    public static void main(){
         try{
-            fileReader.setBr("/Users/happy_family/IdeaProjects/ChessGame/TestFiles/Test.txt");
+            fileReader.setBr("D:/обть/basic_gameplay.game");
         }
         catch (Exception e){
             System.out.println(e);
@@ -83,7 +83,7 @@ public class FileInputClient {
         int dir = 0;
         if(color.equals("Black")) dir = 7;
         for(int i=0; i<=7;i++){
-            if(b.pieces[dir][i] instanceof Pawn){
+            if(b.getPieceBoard()[dir][i] instanceof Pawn){
                 place[0] = dir;
                 place[1] = i;
             }

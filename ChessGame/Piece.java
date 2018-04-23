@@ -14,7 +14,9 @@ abstract public class Piece
     public boolean getCast(){
         return castling;
     }
-
+    public String getColor(){
+        return color;
+    }
     public boolean getHasMove(){
         return hasMove;
     }

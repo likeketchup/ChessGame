@@ -1,7 +1,7 @@
 public class Bishop extends Piece
 {
     static int count = 0;
-    String name = "Bishop";
+    private String name = "Bishop";
     private Bishop(String color,int X, int Y)
     {
         super(color,X,Y);

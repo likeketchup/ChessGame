@@ -1,9 +1,8 @@
 
 public class Pawn extends Piece
 {
-
     static private int count = 0;
-    String name = "Pawn";
+    private String name = "Pawn";
     private Pawn(String color,int X, int Y)
     {
         super(color,X,Y);
