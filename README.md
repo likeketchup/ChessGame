@@ -1,9 +1,9 @@
 # ChessGame
 Q3 work
 ## Author
-Wendy Tan
-Fiona Liu
-Toma Chen
+Wendy Tan<br>
+Fiona Liu<br>
+Toma Chen<br>
 Eason Lu
 ## Basic intro
 * there are only two players in the game, one represents `white` side and the other represents `black` side.
@@ -47,3 +47,5 @@ When a pawn advances to the eighth rank, as a part of the move it is promoted an
 1. En passant
 2. Check( When a king is under immediate attack by one or two of the opponent's pieces, the system does not have the function to save the king.)
 3. Players cannot surrender in the game.
+## About Test Class
+We have already wrote the code of judgement of whether the player win the game or not.(you can just run the code of FileInputClient.java)
